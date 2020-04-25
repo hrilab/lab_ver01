@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>한국의 근대불교문화 사진 아카이브 (DB 추가)</title>
+    <!-- <link rel="stylesheet" href="/css/main.css"> -->
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Raleway);
+    .mainBox{
+        width: 1000px;
+        height: auto;
+        margin: auto;
+        border: 2px solid gray;
+    }
+    #main_title{
+        display: block;
+        width: 600px;
+        height: auto;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 10px; 
+    }
+    #semi_title{
+        display: block;
+    	width: 300px;
+    	height: auto;
+        margin: auto;
+    }
+
+    /* 메뉴 */
+    nav {
+    margin-top: 30px;
+    padding: 24px;
+    text-align: center;
+    font-family: Raleway;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    #navBox {
+    background: #5175C0;
+    }
+    .link {
+    transition: 0.4s;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 0 10px;
+    }
+    .link:hover {
+    background-color: #ffffff;
+    color: black;
+    padding: 24px 10px;
+    }
+
+    /* 추가박스 */
+    
+#addBox{
+    width: 800px;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center; 
+    border:1px solid black;
+}
+.title{
+    width: 1100px;
+    height: 80px;
+    line-height: 80px;
+    border-bottom:2px solid gray;
+}
+.scrap_title{
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    list-style-position: outside;
+}
+
+.addBox{
+    width: 1000px;
+    height: auto;
+    display: inline-block;
+
+    border:1px solid blue;
+}
+.addBox {
+    position: relative;
+} 
+
+body {margin: 10px;}
+.where {
+  display: block;
+  margin: 25px 15px;
+  font-size: 11px;
+  color: #000;
+  text-decoration: none;
+  font-family: verdana;
+  font-style: italic;
+} 
+
+.filebox{
+    margin-top: 20px;
+}
+.filebox input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip:rect(0,0,0,0);
+	border: 0;
+}
+
+.filebox label {
+	display: inline-block;
+	padding: .5em .75em;
+	color: #999;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #fdfdfd;
+	cursor: pointer;
+	border: 1px solid #ebebeb;
+	border-bottom-color: #e2e2e2;
+	border-radius: .25em;
+}
+
+/* named upload */
+.filebox .upload-name {
+	display: inline-block;
+	padding: .5em .75em;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #f5f5f5;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: .25em;
+  -webkit-appearance: none; /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* imaged preview */
+.filebox .upload-display {
+	margin-bottom: 5px;
+}
+
+@media(min-width: 768px) {
+	.filebox .upload-display {
+		display: inline-block;
+		margin-right: 5px;
+		margin-bottom: 0;
+	}
+}
+
+.filebox .upload-thumb-wrap {
+	display: inline-block;
+	width: 54px;
+	padding: 2px;
+	vertical-align: middle;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.filebox .upload-display img {
+	display: block;
+	max-width: 100%;
+	width: 100% \9;
+	height: auto;
+}
+
+.filebox.bs3-primary label {
+  color: #fff;
+  background-color: #337ab7;
+	border-color: #2e6da4;
+}
+
+table.insert {
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: left;
+	line-height: 1.5;
+	border-top: 1px solid #ccc;
+    margin: 20px 10px;
+}
+table.insert th {
+	width: 150px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+	background: #efefef;
+}
+table.insert td {
+	width: 800px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+}
+
+table.insert input{
+    width: 500px;
+}
+#input_cid{
+    width: 200px;
+}
+#input_institution{
+    width: 250px;
+}
+#input_entry{
+    width: 500px;
+}
+#input_time{
+    width: 200px;
+}
+#input_area{
+    width: 200px;
+}
+#input_keyword, #input_detail{
+    width: 500px;
+    height: 100px;
+}
+
+/* 버튼 */
+input.btn {
+    vertical-align: middle;
+    display: inline-block; 
+    line-height: 1;
+    cursor: pointer;
+    
+    /* 패딩은 Input과 다른 태그들이 달라야 한다 */
+	padding: 8px 12px;
+	
+    /* 디자인 */
+    /* transition: all 0.3s; */
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+    border-radius: 6px;
+	font-size: 16px;
+	font-weight: bold; 
+    text-transform: uppercase;
+    border-style: solid;
+    border-width: 2px;
+    
+	padding: 9px 12px 7px;
+}
+#text_load{
+    width: 100px;
+    margin-bottom: -7px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+   
+	</style>
+</head>
+
+<body>
+    <div class="mainBox">
+        <!--타이틀-->
+	    <img id="main_title" onclick="location.href = '/'" src="http://ebtc.dongguk.ac.kr/images/common/logo.jpg" margin: 0 auto;>
+	    <img id="semi_title" onclick="location.href = '/'" src="/images/semi_title.png">
+        <nav id="navBox">
+            <a class="link" href="/intro.html">DB 소개</a>
+            <a class="link" href="/search_index.html">DB 검색</a>
+            <a class="link" href="/addImage.html">DB 추가</a>
+        </nav>
+
+        <div id="addBox">
+            <form action="saveImage" method="post">
+                <div class="filebox bs3-primary preview-image">
+                    <input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
+    
+                    <label for="input_file">첨부</label>
+                  <input type="file" id="input_file" class="upload-hidden" name="input_file">
+                </div>
+                <!-- 입력란 -->
+                <table class="insert">
+                    <tr>
+                        <th scope="row">CID</th>
+                        <td>
+                            <input type="text" name="input_cid" id="input_cid">
+                            <input type="button" name="button" id="text_load" value="갱신">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">수행기관</th>
+                        <!-- 이 밑에꺼부터 -->
+                        <td><input type="text" name="input_institution" id="input_institution"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">대표 표제어</th>
+                        <td><input type="text" name="input_title" id="input_title"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">시대</th>
+                        <td><input type="text" name="input_time" id="input_time"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">지역</th>
+                        <td><input type="text" name="input_area" id="input_area"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">키워드</th>
+                        <td><input type="text" name="input_keyword" id="input_keyword"></td>
+                    </tr>
+                    <!-- 요구사항에 없지만 추가했습니다. (detailImage.html의 사진설명에 들어갈 내용) -->
+                    <tr>
+                        <th scope="row">설명문</th>
+                        <td><input type="text" name="input_detail" id="input_detail"></td>
+                    </tr>
+                </table>
+                            <button type="submit" class='btn btn--default'>업로드</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- 스크립트 -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script lang="javascript" src="dist/xlsx.full.min.js"></script>
+    <script type="text/javascript">
+           $(document).ready(function(){
+       var fileTarget = $('.filebox .upload-hidden');
+   
+       fileTarget.on('change', function(){
+       if(window.FileReader){
+           // 파일명 추출
+           var filename = $(this)[0].files[0].name;
+       }
+   
+       else {
+           // Old IE 파일명 추출
+           var filename = $(this).val().split('/').pop().split('\\').pop();
+       };
+   
+       $(this).siblings('.upload-name').val(filename);
+   });
+   
+   //preview image
+   var imgTarget = $('.preview-image .upload-hidden');
+   
+   imgTarget.on('change', function(){
+       var parent = $(this).parent();
+       parent.children('.upload-display').remove();
+   
+       if(window.FileReader){
+           //image 파일만
+           if (!$(this)[0].files[0].type.match(/image\//)) return;
+   
+           var reader = new FileReader();
+           reader.onload = function(e){
+               var src = e.target.result;
+               parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img src="'+src+'" class="upload-thumb"></div></div>');
+           }
+           reader.readAsDataURL($(this)[0].files[0]);
+       }
+   
+       else {
+           $(this)[0].select();
+           $(this)[0].blur();
+           var imgSrc = document.selection.createRange().text;
+           parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img class="upload-thumb"></div></div>');
+   
+           var img = $(this).siblings('.upload-display').find('img');
+           img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";
+       }
+   });
+   });
+   
+    </script>
+</body>
+</html>

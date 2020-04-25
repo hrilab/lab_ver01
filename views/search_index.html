@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>한국의 근대불교문화 사진 아카이브 (DB 기본검색)</title>
+    <!-- <link rel="stylesheet" href="/css/main.css"> -->
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Raleway);
+    .mainBox{
+        width: 1000px;
+        height: auto;
+        margin: auto;
+        border: 2px solid gray;
+    }
+    #main_title{
+        display: block;
+        width: 600px;
+        height: auto;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 10px; 
+    }
+    #semi_title{
+        display: block;
+    	width: 300px;
+    	height: auto;
+        margin: auto;
+    }
+
+    /* 메뉴 */
+    nav {
+    margin-top: 30px;
+    padding: 24px;
+    text-align: center;
+    font-family: Raleway;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    #navBox {
+    background: #5175C0;
+    }
+    .link {
+    transition: 0.4s;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 0 10px;
+    }
+    .link:hover {
+    background-color: #ffffff;
+    color: black;
+    padding: 24px 10px;
+    }
+
+    /* 검색박스 */
+    .searchBox{
+        display: block;
+        width: 800px;
+        height: 180px;
+        margin: auto;
+        margin-top: 20px;
+        border: 2px solid purple;
+    }
+    /* 검색 메뉴 */
+    .menudes {
+    position: relative;
+    overflow: hidden;
+    width: 70%;
+    margin: auto;
+    background: #333;
+    font-size:0;
+    }
+    .menudes a {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    width: 50%; /* 100% divided of number of elements */
+    box-sizing: border-box;
+    border-right: 2px solid #e8e8e8;
+    padding: 10px 5px;
+    color: #fff;
+    text-decoration: none;
+    text-align:center;
+    font-size: 14px;
+    }
+    .marca {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0%; /* at least width of .menudes a */
+    width: 50%;
+    height: 40px;
+    box-sizing: border-box;
+    background: #fff;
+    opacity:.5;
+    transition: 0.5s ease-in-out;
+    }
+    .menudes a:nth-child(1):hover ~ .marca {
+    left: 0%; 
+    }
+    .menudes a:nth-child(2):hover ~ .marca {
+    left: 50%; /* 1/4 total width */
+    }
+     /* 검색창 */
+     .search-container{
+    width: 500px;
+    display: block;
+    margin: 0 auto;
+    margin-left: 130px;
+    margin-top: 30px;
+    }
+    input#search_word{
+    margin: 0 auto;
+    width: 100%;
+    height: 45px;
+    padding: 0 20px;
+    font-size: 1rem;
+    border: 1px solid #D0CFCE;
+    outline: none;
+    }
+    .search-icon{
+    position: relative;
+    float: right;
+    width: 75px;
+    height: 75px;
+    top: -62px;
+    right: -45px;
+    }
+
+	</style>
+</head>
+
+<body>
+    <div class="mainBox">
+        <!--타이틀-->
+	    <img id="main_title" onclick="location.href = '/'" src="http://ebtc.dongguk.ac.kr/images/common/logo.jpg" margin: 0 auto;>
+	    <img id="semi_title" onclick="location.href = '/'" src="/images/semi_title.png">
+        <nav id="navBox">
+            <a class="link" href="/intro.html">DB 소개</a>
+            <a class="link" href="/search_index.html">DB 검색</a>
+            <a class="link" href="/addImage.html">DB 추가</a>
+        </nav>
+
+        <div class="searchBox">
+            <div class="menudes">
+                <a href="/search_index.html">기본 검색</a>
+                <a href="/search_category_theme.html">카테고리별 검색</a>
+                <div class="marca"></div>
+            </div>
+            <form class="search-container" method="get" action='result_list.html'>
+                <input type="text" id="search_word" placeholder="검색어 입력" name="search_word" autofocus>
+                <input type="image" class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" name="Submit" value="Submit"/>
+            </form>
+        </div>
+
+    </div>
+    <!-- 스크립트 -->
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>

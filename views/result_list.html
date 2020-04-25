@@ -1,0 +1,468 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>한국의 근대불교문화 사진 아카이브 (DB 기본검색)</title>
+    <!-- <link rel="stylesheet" href="/css/main.css"> -->
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Raleway);
+    .mainBox{
+        width: 1000px;
+        height: auto;
+        margin: auto;
+        border: 2px solid gray;
+    }
+    #main_title{
+        display: block;
+        width: 600px;
+        height: auto;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 10px; 
+    }
+    #semi_title{
+        display: block;
+    	width: 300px;
+    	height: auto;
+        margin: auto;
+    }
+
+    /* 메뉴 */
+    nav {
+    margin-top: 30px;
+    padding: 24px;
+    text-align: center;
+    font-family: Raleway;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    #navBox {
+    background: #5175C0;
+    }
+    .link {
+    transition: 0.4s;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 0 10px;
+    }
+    .link:hover {
+    background-color: #ffffff;
+    color: black;
+    padding: 24px 10px;
+    }
+
+    /* 검색박스 */
+    .searchBox{
+        display: block;
+        width: 800px;
+        height: 180px;
+        margin: auto;
+        margin-top: 20px;
+        border: 2px solid purple;
+    }
+    /* 검색 메뉴 */
+    .menudes {
+    position: relative;
+    overflow: hidden;
+    width: 70%;
+    margin: auto;
+    background: #333;
+    font-size:0;
+    }
+    .menudes a {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    width: 50%; /* 100% divided of number of elements */
+    box-sizing: border-box;
+    border-right: 2px solid #e8e8e8;
+    padding: 10px 5px;
+    color: #fff;
+    text-decoration: none;
+    text-align:center;
+    font-size: 14px;
+    }
+    .marca {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0%; /* at least width of .menudes a */
+    width: 50%;
+    height: 40px;
+    box-sizing: border-box;
+    background: #fff;
+    opacity:.5;
+    transition: 0.5s ease-in-out;
+    }
+    .menudes a:nth-child(1):hover ~ .marca {
+    left: 0%; 
+    }
+    .menudes a:nth-child(2):hover ~ .marca {
+    left: 50%; /* 1/4 total width */
+    }
+     /* 검색창 */
+     .search-container{
+    width: 500px;
+    display: block;
+    margin: 0 auto;
+    margin-left: 130px;
+    margin-top: 30px;
+    }
+    input#search_word{
+    margin: 0 auto;
+    width: 100%;
+    height: 45px;
+    padding: 0 20px;
+    font-size: 1rem;
+    border: 1px solid #D0CFCE;
+    outline: none;
+    }
+    .search-icon{
+    position: relative;
+    float: right;
+    width: 75px;
+    height: 75px;
+    top: -62px;
+    right: -45px;
+    }
+
+    /* 사진 띄우기 */
+    .search_result{
+        margin-left: 650px;
+    }
+    #detailBox{
+        width: 1200px;
+        height: 1000px;
+        display: block;
+        float: left;
+        margin: auto;
+        margin-top: -42px;
+        margin-left: -50px;
+        
+        /* border:3px solid black;  */
+    }
+    .relativeBox{
+        width: 800px;
+        height: 80px;
+        line-height: 80px;
+        margin-left: 5px;
+        margin-top: -20px;
+
+        border-bottom:3px solid gray; 
+        
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        font-style: gray;
+        text-decoration: none;
+    }
+    .relative_result{
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+    /* 사진 */
+    .imageBox{
+        width: 100%;
+        height: 900px;
+        /* border:3px solid black;  */
+    }
+    #images{
+        width: 350px;
+        height: 300px;
+        border:3px solid purple;
+        text-align: center;
+        margin-top: 50px;
+        margin-left: 40px;
+        margin-right: auto; 
+        float: left;
+    }
+    /* 이미지 크기 조정해야함ㅠㅠ */
+    .img_setting_images{ 
+        width: auto;
+        width: 100%;
+        height: 90%;
+    }
+    #sample_title{
+        height: 10px;
+        display: block;
+    }
+
+    #result{
+    margin: auto;
+    margin-top: 20px;
+    width: 750px;
+    height: 500px;
+    border: 2px solid orange;
+    }
+    .fixed_top {
+        display:inline-table;
+        position:absolute;
+        top:0;
+        width: 100%;
+        background:#eef7ff;
+    }
+    .tb tr + tr, th + th{
+    border-bottom:1px solid #dedede;
+    }
+    .tb tr:last-child {
+    border-bottom:0;
+    }
+    .tb th{
+        font:500 14px 'spoqa han sans';
+    }
+    .tb th, td {
+    height:42px;
+    text-align:center;
+    }
+    .tb td{
+        font-size: 12px;
+    }
+    .cell0{
+        width: auto;
+    }
+    .cell1{
+        width: auto;
+    }
+    .cell2{
+        width: auto;
+    }
+    .cell3{
+        width: auto;
+    }
+    .cell4{
+        width: auto;
+    }
+
+    /* css */
+    .tb_wrap {
+    position:relative;
+    width:750px;
+    margin:20px auto;
+    padding-top:43px;
+    }
+    .tb_box {
+    max-height:420px;
+    overflow-x:hidden;
+    overflow-y:scroll;
+    border-bottom:1px solid #dedede;
+    }
+    .tb {
+    border-collapse:collapse;
+    border-spacing:0;
+    width:100%;
+    }
+    .fixed_top {
+    display:inline-table;
+    position:absolute;
+    background:#eef7ff;
+    }
+    .fixed_top th {
+    border-top:1px solid #dedede;
+    border-bottom:1px solid #dedede;
+    /* border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede; */
+    }
+    .tb .tb tr.end {
+    color:#999;
+    }
+
+    /* responsive */
+    @media screen and (max-width: 750px) {
+    .tb_wrap {
+        width:100%;
+        height: 500px;
+        overflow:hidden;
+    }
+    .tb_box {
+    overflow-x:hidden;
+    overflow-y:scroll;
+    }
+    .tb {
+        width:750px;
+        width:calc(100%);
+    }
+    .th{
+        border: 1px solid #444444;
+    }
+    .fixed_top {
+        width:750px;
+    }
+    .fixed_col {
+        background:#fff;
+    }
+    .cross {
+        background:#eef7ff;
+    }
+    }
+    .menu_list td{
+        width: 50px;
+    }
+
+	</style>
+</head>
+
+<body>
+    <div class="mainBox">
+        <!--타이틀-->
+	    <img id="main_title" onclick="location.href = '/'" src="http://ebtc.dongguk.ac.kr/images/common/logo.jpg" margin: 0 auto;>
+	    <img id="semi_title" onclick="location.href = '/'" src="/images/semi_title.png">
+        <nav id="navBox">
+            <a class="link" href="/intro.html">DB 소개</a>
+            <a class="link" href="/search_index.html">DB 검색</a>
+            <a class="link" href="/addImage.html">DB 추가</a>
+        </nav>
+
+        <div class="searchBox">
+            <div class="menudes">
+                <a href="/search_index.html">기본 검색</a>
+                <a href="/search_category_theme.html">카테고리별 검색</a>
+                <div class="marca"></div>
+            </div>
+            <form class="search-container" method="get" action='result_list.html'>
+                <input type="text" id="search_word" placeholder="검색어 입력" name="search_word" autofocus>
+                <input type="image" class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" name="Submit" value="Submit"/>
+            </form>
+        </div>
+        <!-- 사진 띄우기 -->
+        <div class ="dB search_result">
+                <a>검색 결과 : </a>
+                <a id="search_value"></a>
+            </div>
+            <div class="tb_wrap">
+                <div class="tb_box">
+                  <table class="tb">
+                    <thead>
+                        <tr class="fixed_top">
+                            <th class="cell0" style="width: 128px;">CID</th>
+                            <th class="cell1" >대표 표제어</th>
+                            <th class="cell2">분야</th>
+                            <th class="cell3">시대</th>
+                            <th class="cell4" style="width: 149px;">저작권자</th>
+                        </tr>
+                    </thead>
+                    <tbody id="menu_list"></tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+    <!-- 스크립트 -->
+    <script type="text/javascript">
+
+    // db 가져오기
+    var headword = new Array;
+    var section = new Array;
+    var era = new Array;
+    var copyrightHolder = new Array;
+    var area = new Array;
+
+    var keyword = new Array();
+            // 검색어 가져오기
+    var getParameters = function (paramName) {
+        // 리턴값을 위한 변수 선언
+        var returnValue;
+        
+        // 현재 URL 가져오기
+        var url = location.href;
+        
+        // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
+        var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+        
+        // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
+        for (var i = 0; i < parameters.length; i++) {
+            var varName = parameters[i].split('=')[0];
+            if (varName.toUpperCase() == paramName.toUpperCase()) {
+                returnValue = parameters[i].split('=')[1];
+                return decodeURIComponent(returnValue);
+            }
+        }
+    };
+    var search_value = getParameters('search_word');
+    document.getElementById("search_value").innerHTML= search_value;
+
+    // 검색어 검색
+    var search_split = search_value.split('+');
+    for (var i = 0; i < 100; i++) { // 예시 샘플 이미지 개수 100
+    
+    var related_split = related[i].split('; '); // '; ' 단위로 분배, i번째 CID의 연관어
+    var keyword_split = keyword[i].split('; '); // '; ' 단위로 분배, i번째 CID의 키워드
+    var headword_split = headword[i].split(' ');
+    for (var j in keyword_split) { // 검색어와 split 비교
+        if(keyword_split[j] == search_split[k] || related_split[j] == search_split[k] || search_split[k] == headword_split[j] || search_split[k] == area[i] || search_split[k] == era[i] ) { // 검색어와의 조건을 넣으면 됨 (키워드 == 검색어 or 검색어 == 사진 제목) // ★★★★★
+                if (i < 9) {
+                    make('0000' + (i+1), i);
+                    break; // 이미지가 한개만 나오면 break문 지우기
+                }
+                else if (i < 99) {
+                    make('000' + (i+1), i);
+                    break;
+                }
+                else if (i < 999) {
+                    make('00' + (i+1), i);
+                    break;
+                }
+                else if (i < 9999) {
+                    make('0' + (i+1), i);
+                    break;
+                }
+                else if (i < 99999) {
+                    make((i+1));
+                    break;
+                }
+            }   
+        }
+    }
+
+        
+        // db의 주제와 요청한 주제가 같을 때.
+        function make() {
+            for (let i = 0; i < db.length; i++) {
+                if (i < 9) {
+                    make_list('0000' + (i+1), i);
+                    break; // 이미지가 한개만 나오면 break문 지우기
+                }
+                else if (i < 99) {
+                    make_list('000' + (i+1), i);
+                    break;
+                }
+                else if (i < 999) {
+                    make_list('00' + (i+1), i);
+                    break;
+                }
+                else if (i < 9999) {
+                    make_list('0' + (i+1), i);
+                    break;
+                }
+                else if (i < 99999) {
+                    make_list((i+1), i);
+                    break;
+                }
+            }
+        }
+        
+        // num에 해당하는 배열들이 들어가야 함
+        function make_list(cid, num){
+            var my_list = document.getElementById('menu_list');
+            var row = my_list.insertRow( menu_list.rows.length );
+            var cell0 = row.insertCell(0); // CID
+            var cell1 = row.insertCell(1); // 대표 표제어
+            var cell2 = row.insertCell(2); // 분야
+            var cell3 = row.insertCell(3); // 시대
+            var cell4 = row.insertCell(4); // 저작권자
+            cell0.innerHTML = 'HSJ' + cid;
+            var s = "<a href='detailImage.html?HSJ";
+            s += cid;
+            s += '\'>';
+            s += headword[num];
+            s += '</a>';
+            cell1.innerHTML = s;
+            cell2.innerHTML = section[num];
+            cell3.innerHTML = era[num];
+            cell4.innerHTML = copyrightHolder[num];
+        }
+        make_list('0000'+1, 0);
+    </script>
+</body>
+</html>

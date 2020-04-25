@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>사진 선택</title>
+    <!-- <link rel="stylesheet" href="css/detailImage.css"> -->
+    <style type="text/css">
+        body{
+    width: 1500px;
+    padding-top: 10px;
+    display: block;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+div{
+    text-align: center;
+}
+p{
+    display: inline;
+}
+
+/* 제목 */
+#title_img{
+    width: 350px;
+    height: auto; 
+    vertical-align: middle;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+#semi_title{
+	width:250px;
+	height: auto;
+	margin-left: 50px;
+	display: block;
+}
+
+/* 메인 */
+#detailBox{
+    display: block;
+}
+/* 이미지 */
+.img_setting{
+    width: auto;
+    height: 95%;
+    margin-top: 7px;
+}
+#img_setting_similar1, #img_setting_similar2, #img_setting_similar3{
+    width: auto;
+    height: 95%;
+    margin-top: 5px;
+}
+.main{
+    float: left;
+    margin-top: 30px;
+    position: relative;
+}
+    /* 1번 이미지 */
+    .mainImage{
+        width: 500px;
+        max-width: 100%;
+        height: 300px;
+        margin-left: 150px;
+        margin-right: auto; 
+        border:1px solid gray;
+        border-radius: 5px;
+    }
+    /* 설명 */
+    .detail{
+        width: 500px;
+        max-width: 100%;
+        height: 200px;
+        margin-left: 30px;
+        margin-right: auto; 
+        /* border:1px solid gray;
+        border-radius: 5px; */
+    }
+    .d{
+        display: block;
+        margin-bottom: 20px;
+        text-align: left;
+        font-weight: lighter;
+    }
+    .title{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    /* 메뉴 */
+    .menu{
+        width: 500px;
+        max-width: 100%;
+        height: 90px;
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: auto; 
+        /* border:1px solid gray;
+        border-radius: 5px; */
+        display: block;
+        text-align: center;
+    }
+
+/* 유사이미지 */
+#similarBox{
+    display: block;
+    float: left;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+.semiTitle{
+    margin-top: 10px;
+    margin-left: 45px;
+    color: gray;
+    font-size: 20px;
+    text-align: left;
+}
+.similar{
+    width: 380px;
+    max-width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: auto; 
+    border:1px solid gray;
+    border-radius: 5px;
+    float: left;
+}
+.image1{
+    margin-left: 150px;
+}
+
+/* 버튼 */
+a {
+	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    display: block;
+    float: left;
+    margin: 20px auto;
+    margin-left: 30px;
+	max-width: 180px;
+	text-decoration: none;
+	border-radius: 4px;
+	padding: 20px 30px;
+}
+
+a.button {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+
+a.button2 {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button2:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+}
+
+
+    </style>
+</head>
+<body>
+    <!--타이틀-->
+    <img onclick="location.href = '/'" src="http://ebtc.dongguk.ac.kr/images/common/logo.jpg" margin: 0 auto; id="title_img">
+    <img id="semi_title" onclick="location.href = '/'" src="/views/images/semi_title.png">
+
+    <!-- 1번 사진 -->
+    <div id="detailBox">
+        <div class="main mainImage">
+            <img class="img_setting" id="main_img">
+        </div>
+
+        <div class="main detail">
+            <div class="d title">
+                제목 : <p id="d_title"></p>
+            </div>
+            <div class="d text1">
+                사진 설명 : <p id="d_text1"></p>
+            </div>
+            <div class="d text2" >
+                상세 설명 : <p id="d_text2"></p>
+            </div>
+        </div>
+
+        <div class="main menu">
+            <a href="javascript:;" onclick="popupImage();" class="button">원본 이미지 보기</a>
+            <!-- <a href="#" class="button2">관심 사진 추가 (미구현)</a> -->
+        </div>
+    </div>
+    
+    <!-- 유사 이미지 -->
+    <div id="similarBox">
+        <div class="semiTitle">
+            유사 이미지
+        </div>
+    </div>
+    
+
+
+    <script type="text/javascript" src="jquery-1.6.4.js"></script>
+    <script type="text/javascript">
+
+        
+	var keyword = new Array(); // 전체 CID의 키워드 배열 
+    var headword = new Array(); // 전체 CID의 제목 
+    var file = new Array(); //전체 이미지
+    var detail = new Array(); //상세정보
+    var era = new Array(); //상세정보
+    var area = new Array(); //상세정보
+	
+	// 사진 CID값 가져오기
+	var getParameters = function (paramName) {
+	    // 리턴값을 위한 변수 선언
+	    var returnValue;
+
+	    // 현재 URL 가져오기
+	    var url = location.href;
+
+	    // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
+	    var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+
+	    // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
+	    for (var i = 0; i < parameters.length; i++) {
+	    var varName = parameters[i].split('=')[0];
+	    if (varName.toUpperCase() == paramName.toUpperCase()) {
+	    returnValue = parameters[i].split('=')[1];
+	    return decodeURIComponent(returnValue);
+	    }
+	    }
+	};
+	
+	var cid = getParameters('cid');
+	var tnum = cid.substring(3,8);
+	var num = tnum*1 - 1;
+	
+
+    // 원본 이미지 생성
+var imgObj = new Image();
+function popupImage() {
+imgObj.src = "/views/images/"+ file[num];
+setTimeout("createImgWin(imgObj)", 100);
+}
+function createImgWin(imgObj) {
+if (! imgObj.complete) {
+setTimeout("createImgWin(imgObj)", 100);
+return;
+}
+imageWin = window.open("", "imageWin",
+"width=" + imgObj.width10 + ",height=" + imgObj.height);
+imageWin.document.write("<html><body style='margin:0; text-align: center;'>") ;
+imageWin.document.write("<img src='" + imgObj.src + "' style='width: auto; height: 750px;'>") ;
+imageWin.document.write("</body><html>") ;
+imageWin.document.title = imgObj.src;
+}
+
+
+
+
+// 메인 사진 출력
+document.getElementById("main_img").src= "/views/images/"+ file[num];
+
+// 사진 세부 정보
+document.getElementById("d_title").innerHTML= headword[num]; // cid_headword
+document.getElementById("d_text1").innerHTML= detail[num]; // cid_detail
+document.getElementById("d_text2").innerHTML= era[num] + ', ' + area[num] + ', ' + keyword[num]; // cid_time + cid_area + cid_keyword
+
+
+//함수
+function make(cid, num){
+	var myDiv = document.createElement("div");
+    add_div(myDiv);
+	
+    var img = document.createElement('img'); // 이미지 객체 생성
+    var cid_num = cid;
+	
+
+    // 이미지를 클릭하면 해당 CID로 detailImage_(CID).html 로 연결
+    img.onclick = function(){
+        location.href='detailImage?cid=' + 'HSJ' + cid_num;
+    };
+
+    img.src = file[num]; // 이미지 경로 설정 (cid_num == 사진 CID)
+    img.style.cursor = 'pointer'; // 커서 지정
+    img.style.width= "auto";
+    img.style.width= "97%";
+    img.style.height= "90%";
+    img.style.marginTop= "5px";
+   	myDiv.appendChild(img); // myDiv 에 이미지 동적 추가 
+   	var img_title = document.createTextNode(headword[num]);
+    myDiv.appendChild(img_title); 
+}
+
+function add_div(div){
+    div.style.width= "380px";
+    div.style.height= "270px";
+    div.style.border= "1px solid gray";
+    div.style.textAlign= "center";
+    div.style.marginTop= "10px";
+    div.style.marginLeft= "40px";
+    div.style.marginRight= "auto"; 
+    div.style.marginBottom= "10px"; 
+    div.style.float= "left";
+
+    document.getElementById('similarBox').appendChild(div);
+   
+}
+
+function make_similar(search_value){
+    for (var i = 0; i < 100; i++) {
+    	if(i != num){
+
+	        var keyword_split = keyword[i].split('; '); // ';' 단위로 분배, i번째 CID의 키워드
+	
+	        for (var j in keyword_split) { // 검색어와 split 비교
+	            if(keyword_split[j] == search_value) { // 검색어와의 조건을 넣으면 됨 (검색어 == 키워드)
+	            	if (i < 9) {
+	                    make('0000' + (i+1), i);
+	                    break; // 이미지가 한개만 나오면 break문 지우기
+	                }
+	                else if (i < 99) {
+	                    make('000' + (i+1), i);
+	                    break;
+	                }
+	                else if (i < 999) {
+	                    make('00' + (i+1), i);
+	                    break;
+	                }
+	                else if (i < 9999) {
+	                    make('0' + (i+1), i);
+	                    break;
+	                }
+	               else if (i < 99999) {
+	                    make((i+1), i);
+	                    break;
+	               }
+	            }
+	        }
+    	}
+    }
+}
+// 유사 이미지
+
+//cid_keyword
+var cid_keyword_split = keyword[num].split(';'); // ';' 단위로 분배, i번째 CID의 키워드
+var cid_keyword_count = 0; // keyword 개수
+while (cid_keyword_split[cid_keyword_count]) { // keyword가 몇개인지 셈
+    cid_keyword_count++;
+}
+
+for (let k = 0; k < cid_keyword_count; k++) { // 유사 이미지가 안나올 경우.. 이름 확인
+    make_similar(cid_keyword_split[k]);
+}
+
+
+</script>
+</body>
+</html>
