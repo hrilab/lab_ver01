@@ -92,7 +92,7 @@ p{
         width: 500px;
         max-width: 100%;
         height: 90px;
-        margin-top: 20px;
+        margin-top: 80px;
         margin-left: 10px;
         margin-right: auto; 
         /* border:1px solid gray;
@@ -185,11 +185,23 @@ a.button2:hover {
             <div class="d title">
                 제목 : <p id="d_title"></p>
             </div>
-            <div class="d text1">
-                사진 설명 : <p id="d_text1"></p>
+            <div class="d section">
+                분류 : <p id="d_section"></p>
             </div>
-            <div class="d text2" >
-                상세 설명 : <p id="d_text2"></p>
+            <div class="d era" >
+                시대 : <p id="d_era"></p>
+            </div>
+            <div class="d area" >
+                지역 : <p id="d_area"></p>
+            </div>
+            <div class="d body" >
+                본문 : <p id="d_body"></p>
+            </div>
+            <div class="d keyword" >
+                키워드 : <p id="d_keyword"></p>
+            </div>
+            <div class="d related" >
+                연관어 : <p id="d_related"></p>
             </div>
         </div>
 
@@ -215,9 +227,12 @@ a.button2:hover {
 	var keyword = new Array(); // 전체 CID의 키워드 배열 
     var headword = new Array(); // 전체 CID의 제목 
     var file = new Array(); //전체 이미지
-    var detail = new Array(); //상세정보
-    var era = new Array(); //상세정보
-    var area = new Array(); //상세정보
+    var body = new Array(); // 본문 - body
+    var era = new Array(); // 시대
+    var area = new Array(); // 지역
+    var section = new Array(); // 분야(분류)
+    var related = new Array(); // 연관어
+
 	
 	// 사진 CID값 가져오기
 	var getParameters = function (paramName) {
@@ -270,10 +285,14 @@ imageWin.document.title = imgObj.src;
 // 메인 사진 출력
 document.getElementById("main_img").src= "/views/images/"+ file[num];
 
-// 사진 세부 정보
+// 사진 세부 정보, 제목 분류 시대 지역 본문 키워드 연관어
 document.getElementById("d_title").innerHTML= headword[num]; // cid_headword
-document.getElementById("d_text1").innerHTML= detail[num]; // cid_detail
-document.getElementById("d_text2").innerHTML= era[num] + ', ' + area[num] + ', ' + keyword[num]; // cid_time + cid_area + cid_keyword
+document.getElementById("d_section").innerHTML= detail[num]; 
+document.getElementById("d_era").innerHTML= era[num]; 
+document.getElementById("d_area").innerHTML= area[num];
+document.getElementById("d_body").innerHTML= body[num];
+document.getElementById("d_keyword").innerHTML= keyword[num];
+document.getElementById("d_related").innerHTML= related[num];
 
 
 //함수
