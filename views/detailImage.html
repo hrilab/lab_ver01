@@ -24,7 +24,7 @@ p{
 /* 제목 */
 #title_img{
     width: 350px;
-    height: auto; 
+    height: auto;
     vertical-align: middle;
     margin-top: 20px;
     margin-left: 20px;
@@ -63,7 +63,7 @@ p{
         max-width: 100%;
         height: 300px;
         margin-left: 150px;
-        margin-right: auto; 
+        margin-right: auto;
         border:1px solid gray;
         border-radius: 5px;
     }
@@ -73,7 +73,7 @@ p{
         max-width: 100%;
         height: 200px;
         margin-left: 30px;
-        margin-right: auto; 
+        margin-right: auto;
         /* border:1px solid gray;
         border-radius: 5px; */
     }
@@ -94,7 +94,7 @@ p{
         height: 90px;
         margin-top: 80px;
         margin-left: 10px;
-        margin-right: auto; 
+        margin-right: auto;
         /* border:1px solid gray;
         border-radius: 5px; */
         display: block;
@@ -121,7 +121,7 @@ p{
     height: 200px;
     margin-top: 10px;
     margin-left: 40px;
-    margin-right: auto; 
+    margin-right: auto;
     border:1px solid gray;
     border-radius: 5px;
     float: left;
@@ -210,22 +210,22 @@ a.button2:hover {
             <!-- <a href="#" class="button2">관심 사진 추가 (미구현)</a> -->
         </div>
     </div>
-    
+
     <!-- 유사 이미지 -->
     <div id="similarBox">
         <div class="semiTitle">
             유사 이미지
         </div>
     </div>
-    
+
 
 
     <script type="text/javascript" src="jquery-1.6.4.js"></script>
     <script type="text/javascript">
 
-        
-	var keyword = new Array(); // 전체 CID의 키워드 배열 
-    var headword = new Array(); // 전체 CID의 제목 
+
+	var keyword = new Array(); // 전체 CID의 키워드 배열
+    var headword = new Array(); // 전체 CID의 제목
     var file = new Array(); //전체 이미지
     var body = new Array(); // 본문 - body
     var era = new Array(); // 시대
@@ -233,7 +233,7 @@ a.button2:hover {
     var section = new Array(); // 분야(분류)
     var related = new Array(); // 연관어
 
-	
+
 	// 사진 CID값 가져오기
 	var getParameters = function (paramName) {
 	    // 리턴값을 위한 변수 선언
@@ -254,11 +254,11 @@ a.button2:hover {
 	    }
 	    }
 	};
-	
+
 	var cid = getParameters('cid');
 	var tnum = cid.substring(3,8);
 	var num = tnum*1 - 1;
-	
+
 
     // 원본 이미지 생성
 var imgObj = new Image();
@@ -287,8 +287,8 @@ document.getElementById("main_img").src= "/views/images/"+ file[num];
 
 // 사진 세부 정보, 제목 분류 시대 지역 본문 키워드 연관어
 document.getElementById("d_title").innerHTML= headword[num]; // cid_headword
-document.getElementById("d_section").innerHTML= detail[num]; 
-document.getElementById("d_era").innerHTML= era[num]; 
+document.getElementById("d_section").innerHTML= detail[num];
+document.getElementById("d_era").innerHTML= era[num];
 document.getElementById("d_area").innerHTML= area[num];
 document.getElementById("d_body").innerHTML= body[num];
 document.getElementById("d_keyword").innerHTML= keyword[num];
@@ -299,10 +299,10 @@ document.getElementById("d_related").innerHTML= related[num];
 function make(cid, num){
 	var myDiv = document.createElement("div");
     add_div(myDiv);
-	
+
     var img = document.createElement('img'); // 이미지 객체 생성
     var cid_num = cid;
-	
+
 
     // 이미지를 클릭하면 해당 CID로 detailImage_(CID).html 로 연결
     img.onclick = function(){
@@ -315,9 +315,9 @@ function make(cid, num){
     img.style.width= "97%";
     img.style.height= "90%";
     img.style.marginTop= "5px";
-   	myDiv.appendChild(img); // myDiv 에 이미지 동적 추가 
+   	myDiv.appendChild(img); // myDiv 에 이미지 동적 추가
    	var img_title = document.createTextNode(headword[num]);
-    myDiv.appendChild(img_title); 
+    myDiv.appendChild(img_title);
 }
 
 function add_div(div){
@@ -327,12 +327,12 @@ function add_div(div){
     div.style.textAlign= "center";
     div.style.marginTop= "10px";
     div.style.marginLeft= "40px";
-    div.style.marginRight= "auto"; 
-    div.style.marginBottom= "10px"; 
+    div.style.marginRight= "auto";
+    div.style.marginBottom= "10px";
     div.style.float= "left";
 
     document.getElementById('similarBox').appendChild(div);
-   
+
 }
 
 function make_similar(search_value){
@@ -340,7 +340,7 @@ function make_similar(search_value){
     	if(i != num){
 
 	        var keyword_split = keyword[i].split('; '); // ';' 단위로 분배, i번째 CID의 키워드
-	
+
 	        for (var j in keyword_split) { // 검색어와 split 비교
 	            if(keyword_split[j] == search_value) { // 검색어와의 조건을 넣으면 됨 (검색어 == 키워드)
 	            	if (i < 9) {

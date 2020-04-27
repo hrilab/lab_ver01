@@ -19,7 +19,7 @@
         height: auto;
         margin: auto;
         margin-top: 20px;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
     #semi_title{
         display: block;
@@ -97,7 +97,7 @@
     transition: 0.5s ease-in-out;
     }
     .menudes a:nth-child(1):hover ~ .marca {
-    left: 0%; 
+    left: 0%;
     }
     .menudes a:nth-child(2):hover ~ .marca {
     left: 50%; /* 1/4 total width */
@@ -140,7 +140,7 @@
         margin: auto;
         margin-top: -42px;
         margin-left: -50px;
-        
+
         /* border:3px solid black;  */
     }
     .relativeBox{
@@ -150,8 +150,8 @@
         margin-left: 5px;
         margin-top: -20px;
 
-        border-bottom:3px solid gray; 
-        
+        border-bottom:3px solid gray;
+
         font-family: Arial, sans-serif;
         font-weight: bold;
         font-size: 14px;
@@ -176,11 +176,11 @@
         text-align: center;
         margin-top: 50px;
         margin-left: 40px;
-        margin-right: auto; 
+        margin-right: auto;
         float: left;
     }
     /* 이미지 크기 조정해야함ㅠㅠ */
-    .img_setting_images{ 
+    .img_setting_images{
         width: auto;
         width: 100%;
         height: 90%;
@@ -310,18 +310,18 @@
 	    <img id="main_title" onclick="location.href = '/'" src="http://ebtc.dongguk.ac.kr/images/common/logo.jpg" margin: 0 auto;>
 	    <img id="semi_title" onclick="location.href = '/'" src="/images/semi_title.png">
         <nav id="navBox">
-            <a class="link" href="/intro.html">DB 소개</a>
-            <a class="link" href="/search_index.html">DB 검색</a>
-            <a class="link" href="/addImage.html">DB 추가</a>
+            <a class="link" href="/intro">DB 소개</a>
+            <a class="link" href="/search_index">DB 검색</a>
+            <a class="link" href="/addImage">DB 추가</a>
         </nav>
 
         <div class="searchBox">
             <div class="menudes">
-                <a href="/search_index.html">기본 검색</a>
-                <a href="/search_category_theme.html">카테고리별 검색</a>
+                <a href="/search_index">기본 검색</a>
+                <a href="/search_category_theme">카테고리별 검색</a>
                 <div class="marca"></div>
             </div>
-            <form class="search-container" method="get" action='result_list.html'>
+            <form class="search-container" method="get" action='result_list'>
                 <input type="text" id="search_word" placeholder="검색어 입력" name="search_word" autofocus>
                 <input type="image" class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" name="Submit" value="Submit"/>
             </form>
@@ -363,13 +363,13 @@
     var getParameters = function (paramName) {
         // 리턴값을 위한 변수 선언
         var returnValue;
-        
+
         // 현재 URL 가져오기
         var url = location.href;
-        
+
         // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
         var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
-        
+
         // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
         for (var i = 0; i < parameters.length; i++) {
             var varName = parameters[i].split('=')[0];
@@ -385,7 +385,7 @@
     // 검색어 검색
     var search_split = search_value.split('+');
     for (var i = 0; i < 100; i++) { // 예시 샘플 이미지 개수 100
-    
+
     var related_split = related[i].split('; '); // '; ' 단위로 분배, i번째 CID의 연관어
     var keyword_split = keyword[i].split('; '); // '; ' 단위로 분배, i번째 CID의 키워드
     var headword_split = headword[i].split(' ');
@@ -411,11 +411,11 @@
                     make((i+1));
                     break;
                 }
-            }   
+            }
         }
     }
 
-        
+
         // db의 주제와 요청한 주제가 같을 때.
         function make() {
             for (let i = 0; i < db.length; i++) {
@@ -441,7 +441,7 @@
                 }
             }
         }
-        
+
         // num에 해당하는 배열들이 들어가야 함
         function make_list(cid, num){
             var my_list = document.getElementById('menu_list');

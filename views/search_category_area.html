@@ -19,7 +19,7 @@
         height: auto;
         margin: auto;
         margin-top: 20px;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
     #semi_title{
         display: block;
@@ -98,7 +98,7 @@
     transition: 0.5s ease-in-out;
     }
     .menudes a:nth-child(1):hover ~ .marca {
-    left: 0%; 
+    left: 0%;
     }
     .menudes a:nth-child(2):hover ~ .marca {
     left: 50%; /* 1/4 total width */
@@ -125,7 +125,7 @@
         text-transform:uppercase;
         border-radius: 5px;
     }
-    
+
     .theme{
         margin: auto;
         margin-top: 20px;
@@ -277,22 +277,22 @@
 	    <img id="main_title" onclick="location.href = '/'" src="http://ebtc.dongguk.ac.kr/images/common/logo.jpg" margin: 0 auto;>
 	    <img id="semi_title" onclick="location.href = '/'" src="/images/semi_title.png">
         <nav id="navBox">
-            <a class="link" href="/intro.html">DB 소개</a>
-            <a class="link" href="/search_index.html">DB 검색</a>
-            <a class="link" href="/addImage.html">DB 추가</a>
+            <a class="link" href="/intro">DB 소개</a>
+            <a class="link" href="/search_index">DB 검색</a>
+            <a class="link" href="/addImage">DB 추가</a>
         </nav>
 
         <div class="searchBox">
             <div class="menudes">
-                <a href="/search_index.html">기본 검색</a>
-                <a href="/search_category_theme.html">카테고리별 검색</a>
+                <a href="/search_index">기본 검색</a>
+                <a href="/search_category_theme">카테고리별 검색</a>
                 <div class="marca"></div>
             </div>
             <!-- 분류 : 분야, 시대, 지역 -->
             <div class="categoryMenu">
-                <a href="#" onclick="location.href = 'search_category_theme.html'" class="btn">주제별 분류</a>
-                <a href="#" onclick="location.href = 'search_category_era.html'" class="btn">시대별 분류</a>
-                <a href="#" onclick="location.href = 'search_category_area.html'" class="btn" id="current_category">지역별 분류</a>
+                <a href="#" onclick="location.href = 'search_category_theme'" class="btn">주제별 분류</a>
+                <a href="#" onclick="location.href = 'search_category_era'" class="btn">시대별 분류</a>
+                <a href="#" onclick="location.href = 'search_category_area'" class="btn" id="current_category">지역별 분류</a>
 
                 <!-- 주제별 메뉴 나옴 -->
                 <!-- 교단, 교육/학교, 단체, 문헌, 불교건축, 불교미술, 사찰, 의식/의례, 활동 -->
@@ -380,7 +380,7 @@
         var era = new Array;
         var area = new Array;
         var copyrightHolder = new Array;
-        
+
         // db의 주제와 요청한 주제가 같을 때.
         function make() {
             for (let i = 0; i < db.length; i++) {
@@ -406,9 +406,9 @@
                         break;
                     }
                 }
-            } 
+            }
         }
-        
+
         // num에 해당하는 배열들이 들어가야 함
         function make_list(cid, num){
             var my_list = document.getElementById('menu_list');
@@ -429,7 +429,7 @@
             cell3.innerHTML = era[num];
             cell4.innerHTML = copyrightHolder[num];
         }
-        
+
         </script>
 </body>
 </html>

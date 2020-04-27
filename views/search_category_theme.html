@@ -19,7 +19,7 @@
         height: auto;
         margin: auto;
         margin-top: 20px;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
     #semi_title{
         display: block;
@@ -98,7 +98,7 @@
     transition: 0.5s ease-in-out;
     }
     .menudes a:nth-child(1):hover ~ .marca {
-    left: 0%; 
+    left: 0%;
     }
     .menudes a:nth-child(2):hover ~ .marca {
     left: 50%; /* 1/4 total width */
@@ -125,7 +125,7 @@
         text-transform:uppercase;
         border-radius: 5px;
     }
-    
+
     .theme{
         margin: auto;
         margin-top: 20px;
@@ -277,27 +277,27 @@
 	    <img id="main_title" onclick="location.href = '/'" src="http://ebtc.dongguk.ac.kr/images/common/logo.jpg" margin: 0 auto;>
 	    <img id="semi_title" onclick="location.href = '/'" src="/images/semi_title.png">
         <nav id="navBox">
-            <a class="link" href="/intro.html">DB 소개</a>
-            <a class="link" href="/search_index.html">DB 검색</a>
-            <a class="link" href="/addImage.html">DB 추가</a>
+            <a class="link" href="/intro">DB 소개</a>
+            <a class="link" href="/search_index">DB 검색</a>
+            <a class="link" href="/addImage">DB 추가</a>
         </nav>
 
         <div class="searchBox">
             <div class="menudes">
-                <a href="/search_index.html">기본 검색</a>
-                <a href="/search_category_theme.html">카테고리별 검색</a>
+                <a href="/search_index">기본 검색</a>
+                <a href="/search_category_theme">카테고리별 검색</a>
                 <div class="marca"></div>
             </div>
             <!-- 분류 : 분야, 시대, 지역 -->
             <div class="categoryMenu">
-                <a href="#" onclick="location.href = 'search_category_theme.html'" class="btn" id="current_category">주제별 분류</a>
-                <a href="#" onclick="location.href = 'search_category_era.html'" class="btn">시대별 분류</a>
-                <a href="#" onclick="location.href = 'search_category_area.html'" class="btn">지역별 분류</a>
+                <a href="#" onclick="location.href = 'search_category_theme'" class="btn" id="current_category">주제별 분류</a>
+                <a href="#" onclick="location.href = 'search_category_era'" class="btn">시대별 분류</a>
+                <a href="#" onclick="location.href = 'search_category_area'" class="btn">지역별 분류</a>
 
                 <!-- 주제별 메뉴 나옴 -->
                 <!-- 교단, 교육/학교, 단체, 문헌, 불교건축, 불교미술, 사찰, 의식/의례, 활동 -->
                 <div class="theme">
-                    <!-- <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'small_theme=' + '교단'">교단</a> -->
+                    <!-- <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'small_theme=' + '교단'">교단</a> -->
 
                     <table  class="theme_list">
                         <thead>
@@ -312,148 +312,148 @@
                             <td>1</td>
                             <td>교단</td>
                             <td>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '종단'">종단</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '총무원'">총무원</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '종의회'">종의회</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '역경원'">역경원</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '교무원'">교무원</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '기타'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '종단'">종단</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '총무원'">총무원</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '종의회'">종의회</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '역경원'">역경원</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '교무원'">교무원</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '기타'">기타</a>
                             </td>
                           </tr>
                           <tr>
                             <td>2</td>
                             <td>사찰</td>
                             <td>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교조계종'">대한불교조계종</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '한국불교태고종'">한국불교태고종</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '재단법인선학원'">재단법인선학원</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교법화종'">대한불교법화종</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교원효종'">대한불교원효종</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교천태종'">대한불교천태종</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교진각종'">대한불교진각종</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교관음종'">대한불교관음종</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교보문종'">대한불교보문종</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '불교총지종'">불교총지종</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '일붕선교종'">일붕선교종</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '암자'">암자</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '포교당'">포교당</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '북한사찰'">북한사찰</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '일본사찰'">일본사찰</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '미국사찰'">미국사찰</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '기타'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교조계종'">대한불교조계종</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '한국불교태고종'">한국불교태고종</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '재단법인선학원'">재단법인선학원</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교법화종'">대한불교법화종</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교원효종'">대한불교원효종</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교천태종'">대한불교천태종</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교진각종'">대한불교진각종</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교관음종'">대한불교관음종</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교보문종'">대한불교보문종</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '불교총지종'">불교총지종</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '일붕선교종'">일붕선교종</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '암자'">암자</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '포교당'">포교당</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '북한사찰'">북한사찰</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '일본사찰'">일본사찰</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '미국사찰'">미국사찰</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '기타'">기타</a>
                             </td>
                           </tr>
                           <tr>
                             <td>3</td>
                             <td>단체</td>
                             <td>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '단체' + '&' + 'small_theme=' + '승려'">승려</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '단체' + '&' + 'small_theme=' + '일반'">일반</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '단체' + '&' + 'small_theme=' + '재가신도'">재가신도</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '단체' + '&' + 'small_theme=' + '기타'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '단체' + '&' + 'small_theme=' + '승려'">승려</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '단체' + '&' + 'small_theme=' + '일반'">일반</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '단체' + '&' + 'small_theme=' + '재가신도'">재가신도</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '단체' + '&' + 'small_theme=' + '기타'">기타</a>
                             </td>
                           </tr>
                           <tr>
                             <td>4</td>
                             <td>인물</td>
                             <td>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '승려'">승려</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '문화예술인'">문화예술인</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '학자'">학자</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '재가신도'">재가신도</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '독립유공자'">독립유공자</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '민족운동가'">민족운동가</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '정치인'">정치인</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '학생'">학생</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '기타'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '승려'">승려</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '문화예술인'">문화예술인</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '학자'">학자</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '재가신도'">재가신도</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '독립유공자'">독립유공자</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '민족운동가'">민족운동가</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '정치인'">정치인</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '학생'">학생</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '기타'">기타</a>
                             </td>
                           </tr>
                           <tr>
                             <td>5</td>
                             <td>활동</td>
                             <td>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '행사'">행사</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '대회'">대회</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '법회'">법회</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '포교'">포교</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '언론'">언론</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '선거 결사'">선거 결사</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '안거'">안거</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '울력'">울력</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '신앙'">신앙</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '민족운동'">민족운동</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '독립운동'">독립운동</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '교화'">교화</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '계몽'">계몽</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '불사'">불사</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '민주화운동'">민주화운동</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '기타'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '행사'">행사</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '대회'">대회</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '법회'">법회</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '포교'">포교</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '언론'">언론</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '선거 결사'">선거 결사</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '안거'">안거</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '울력'">울력</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '신앙'">신앙</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '민족운동'">민족운동</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '독립운동'">독립운동</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '교화'">교화</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '계몽'">계몽</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '불사'">불사</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '민주화운동'">민주화운동</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '기타'">기타</a>
                             </td>
                           </tr>
                           <tr>
                             <td>6</td>
                             <td>교육·학교</td>
                             <td>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '강원'">강원</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '선원'">선원</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '율원'">율원</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '대학교'">대학교</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '고등학교'">고등학교</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '중학교'">중학교</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '초등학교'">초등학교</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '재가신도교육'">기타</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '야학'">야학</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '총림'">총림</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '학림'">학림</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '기타'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '강원'">강원</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '선원'">선원</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '율원'">율원</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '대학교'">대학교</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '고등학교'">고등학교</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '중학교'">중학교</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '초등학교'">초등학교</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '재가신도교육'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '야학'">야학</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '총림'">총림</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '학림'">학림</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '기타'">기타</a>
                             </td>
                           </tr>
                           <tr>
                             <td>7</td>
                             <td>문헌</td>
                             <td>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '간행물'">간행물</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '문건'">문건</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '성명서'">성명서</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '게문'">게문</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '팸플릿'">팸플릿</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '방함록'">방함록</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '상량문'">상량문</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '발원문'">발원문</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '용상방'">용상방</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '방함록'">방함록</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '기타'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '간행물'">간행물</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '문건'">문건</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '성명서'">성명서</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '게문'">게문</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '팸플릿'">팸플릿</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '방함록'">방함록</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '상량문'">상량문</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '발원문'">발원문</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '용상방'">용상방</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '방함록'">방함록</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '기타'">기타</a>
                             </td>
                           </tr>
                           <tr>
                             <td>8</td>
                             <td>의식·의례</td>
                             <td>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '죽음의례'">죽음의례</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '일상의례'">일상의례</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '소재의례'">소재의례</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '불교신앙의례'">불교신앙의례</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '기타'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '죽음의례'">죽음의례</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '일상의례'">일상의례</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '소재의례'">소재의례</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '불교신앙의례'">불교신앙의례</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '기타'">기타</a>
                             </td>
                           </tr>
                           <tr>
                             <td>9</td>
                             <td>불교건축</td>
                             <td>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '불교건축' + '&' + 'small_theme=' + '전각'">전각</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '불교건축' + '&' + 'small_theme=' + '기타'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교건축' + '&' + 'small_theme=' + '전각'">전각</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교건축' + '&' + 'small_theme=' + '기타'">기타</a>
                             </td>
                           </tr>
                           <tr>
                             <td>10</td>
                             <td>불교미술</td>
                             <td>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '회화'">회화</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '서예'">서예</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '조각'">조각</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '공예'">공예</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '경판'">경판</a>
-                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme.html?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '기타'">기타</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '회화'">회화</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '서예'">서예</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '조각'">조각</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '공예'">공예</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '경판'">경판</a>
+                                <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '기타'">기타</a>
                             </td>
                           </tr>
                         </tbody>
@@ -514,7 +514,7 @@
         var section = new Array;
         var era = new Array;
         var copyrightHolder = new Array;
-        
+
         // db의 주제와 요청한 주제가 같을 때.
         function make() {
             for (let i = 0; i < db.length; i++) {
@@ -540,9 +540,9 @@
                         break;
                     }
                 }
-            } 
+            }
         }
-        
+
         // num에 해당하는 배열들이 들어가야 함
         function make_list(cid, num){
             var my_list = document.getElementById('menu_list');
@@ -553,7 +553,7 @@
             var cell3 = row.insertCell(3); // 시대
             var cell4 = row.insertCell(4); // 저작권자
             cell0.innerHTML = 'HSJ' + cid;
-            var s = "<a href='detailImage.html?HSJ'";
+            var s = "<a href='detailImage?HSJ'";
             s += cid;
             s += '>';
             s += headword[num];
@@ -563,7 +563,7 @@
             cell3.innerHTML = era[num];
             cell4.innerHTML = copyrightHolder[num];
         }
-        
+
         </script>
 </body>
 </html>
