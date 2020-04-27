@@ -35,7 +35,16 @@ module.exports = function(app) {
   });
 
   app.get("/result_list", function(req,res) {
-    res.render("result_list.html");
+    var conn = mysql.createConnection(conn_info);
+	    var sql = "select * from DataTable";
+
+	    conn.query(sql, function(err,rows) {
+	      var render_data = {
+	        "rows" : rows
+	      };
+
+        res.render("result_list.html", render_data);
+    });
   });
 
   app.get("/search", function(req,res) {
@@ -70,7 +79,7 @@ module.exports = function(app) {
 	      };
 
     res.render("detailImage.html", render_data);
-  });
+    });
   });
 
   app.get("/addImage", function(req,res) {
