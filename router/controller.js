@@ -27,7 +27,7 @@ module.exports = function(app) {
   });
 
   app.get("/search_category_era", function(req,res) {
-    res.render_data("search_category_era.html");
+    res.render("search_category_era.html");
   });
 
   app.get("/search_category_area", function(req,res) {
