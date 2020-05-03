@@ -23,6 +23,7 @@ module.exports = function(app) {
   });
 
   app.get("/search_category_theme", function(req,res) {
+
     res.render("search_category_theme.html");
   });
 
@@ -35,13 +36,21 @@ module.exports = function(app) {
   });
 
   app.get("/result_list", function(req,res) {
+    //var word = req.qeury.search_word;
+    //console.log(word);
+    console.log(req.query.search_word);
+    var word=req.query.search_word;
+    console.log(word);
+
     var conn = mysql.createConnection(conn_info);
-	    var sql = "select * from DataTable";
+	    var sql = "select * from DataTable where keyword like '%"+word+"%';";
+      console.log(sql);
 
 	    conn.query(sql, function(err,rows) {
 	      var render_data = {
 	        "rows" : rows
 	      };
+        console.log(render_data);
 
         res.render("result_list.html", render_data);
     });
