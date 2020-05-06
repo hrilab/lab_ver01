@@ -24,15 +24,79 @@ module.exports = function(app) {
 
   app.get("/search_category_theme", function(req,res) {
 
-    res.render("search_category_theme.html");
+    console.log(req.query.large_theme);
+    var largeTheme=""+req.query.large_theme;
+    console.log(largeTheme);
+
+    if(largeTheme!="undefined") {
+      var conn = mysql.createConnection(conn_info);
+  	    var sql = "select * from DataTable where relatedWord like '%"+largeTheme+"%' or part like '%"+largeTheme+"%';";
+        console.log(sql);
+
+  	    conn.query(sql, function(err,rows) {
+  	      var render_data = {
+  	        "rows" : rows
+  	      };
+          console.log(render_data);
+
+          res.render("result_list.html", render_data);
+      });
+    }
+    else {
+        res.render("search_category_theme.html");
+    }
   });
 
   app.get("/search_category_era", function(req,res) {
-    res.render("search_category_era.html");
+
+    console.log(req.query.era_value);
+    var era=""+req.query.era_value;
+    era=era.substring(0,3);
+    console.log(era);
+
+    if(era!="und") {
+      var conn = mysql.createConnection(conn_info);
+  	    var sql = "select * from DataTable where type4 like '%"+era+"%';";
+        console.log(sql);
+
+  	    conn.query(sql, function(err,rows) {
+  	      var render_data = {
+  	        "rows" : rows
+  	      };
+          console.log(render_data);
+
+          res.render("result_list.html", render_data);
+      });
+    }
+    else {
+        res.render("search_category_era.html");
+    }
   });
 
   app.get("/search_category_area", function(req,res) {
-    res.render("search_category_area.html");
+
+
+    console.log(req.query);
+    var area= ""+req.query.area_value;
+    console.log(area);
+
+    if(area!="undefined") {
+      var conn = mysql.createConnection(conn_info);
+  	    var sql = "select * from DataTable where region like '%"+area+"%';";
+        console.log(sql);
+
+  	    conn.query(sql, function(err,rows) {
+  	      var render_data = {
+  	        "rows" : rows
+  	      };
+          console.log(render_data);
+
+          res.render("result_list.html", render_data);
+      });
+    }
+    else {
+        res.render("search_category_area.html");
+    }
   });
 
   app.get("/result_list", function(req,res) {
