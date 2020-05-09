@@ -428,7 +428,6 @@ for (let i = 0; i < part_split.length; i++) {
     part[i] = part_split[i];
 }
 
-<<<<<<< HEAD
     // num에 해당하는 배열들이 들어가야 함
     function make_list(cid, num){
         var my_list = document.getElementById('menu_list');
@@ -449,28 +448,6 @@ for (let i = 0; i < part_split.length; i++) {
         cell3.innerHTML = era[num];
         cell4.innerHTML = copyrighter[num];
     }
-=======
-        // num에 해당하는 배열들이 들어가야 함
-        function make_list(cid, num){
-            var my_list = document.getElementById('menu_list');
-            var row = my_list.insertRow( menu_list.rows.length );
-            var cell0 = row.insertCell(0); // CID
-            var cell1 = row.insertCell(1); // 대표 표제어
-            var cell2 = row.insertCell(2); // 분야
-            var cell3 = row.insertCell(3); // 시대
-            var cell4 = row.insertCell(4); // 저작권자
-            cell0.innerHTML = 'HSJ' + cid;
-            var s = "<a href='detailImage?HSJ'";
-            s += cid;
-            s += '>';
-            s += headword[num];
-            s += '</a>';
-            cell1.innerHTML = s;
-            cell2.innerHTML = section[num];
-            cell3.innerHTML = era[num];
-            cell4.innerHTML = copyrightHolder[num];
-        }
->>>>>>> 6c4cfc3f41264d6c4f5f13fb780c3528413f55ef
 
     // 리스트 출력
     for (let i = 0; i < count; i++) {
