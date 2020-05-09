@@ -30,7 +30,11 @@ module.exports = function(app) {
 
     if(largeTheme!="undefined") {
       var conn = mysql.createConnection(conn_info);
+<<<<<<< HEAD
   	    var sql = "select * from DataTable where part like '%"+largeTheme+"%' or part like '%"+largeTheme+"%';";
+=======
+  	    var sql = "select * from DataTable where relatedWord like '%"+largeTheme+"%' or part like '%"+largeTheme+"%';";
+>>>>>>> 6c4cfc3f41264d6c4f5f13fb780c3528413f55ef
         console.log(sql);
 
   	    conn.query(sql, function(err,rows) {
@@ -39,7 +43,11 @@ module.exports = function(app) {
   	      };
           console.log(render_data);
 
+<<<<<<< HEAD
           res.render("search_category_theme.html", render_data);
+=======
+          res.render("result_list.html", render_data);
+>>>>>>> 6c4cfc3f41264d6c4f5f13fb780c3528413f55ef
       });
     }
     else {
@@ -65,7 +73,11 @@ module.exports = function(app) {
   	      };
           console.log(render_data);
 
+<<<<<<< HEAD
           res.render("search_category_era.html", render_data);
+=======
+          res.render("result_list.html", render_data);
+>>>>>>> 6c4cfc3f41264d6c4f5f13fb780c3528413f55ef
       });
     }
     else {
@@ -91,7 +103,11 @@ module.exports = function(app) {
   	      };
           console.log(render_data);
 
+<<<<<<< HEAD
           res.render("search_category_area.html", render_data);
+=======
+          res.render("result_list.html", render_data);
+>>>>>>> 6c4cfc3f41264d6c4f5f13fb780c3528413f55ef
       });
     }
     else {
