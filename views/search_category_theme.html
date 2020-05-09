@@ -130,10 +130,10 @@
         margin: auto;
         margin-top: 20px;
     }
-    .theme a{
+    /* .theme a{
         font-size: 20px;
         padding-right: 10px;
-    }
+    } */
 
     .p {
     text-align: center;
@@ -141,15 +141,22 @@
     font-size: 14px;
     }
 
+    .large_link{
+        font-size: 18px;
+        text-decoration: none; color: darkred;
+    }
     .theme_list{
         width: 100%;
         border: 1px solid #444444;
     }
-    .theme_list th, td{
+    .theme_list th{
         border: 1px solid #444444;
     }
-    .theme_list a{
-        font-size: 13px;
+    .theme_list td{
+        border: 1px solid #444444;
+    }
+    .theme_link{
+        font-size: 14px;
         text-decoration: none; color: blue;
     }
     #current_category{
@@ -157,116 +164,116 @@
     }
 
     /* 결과 */
-#result{
+    #result{
     margin: auto;
     margin-top: 20px;
     width: 750px;
     height: 500px;
     border: 2px solid orange;
-}
-.fixed_top {
-    display:inline-table;
-    position:absolute;
-    top:0;
-    width: 100%;
-    background:#eef7ff;
-}
-.tb tr + tr, th + th{
-  border-bottom:1px solid #dedede;
-}
-.tb tr:last-child {
-  border-bottom:0;
-}
-.tb th{
-    font:500 14px 'spoqa han sans';
-}
-.tb th, td {
-  height:42px;
-  text-align:center;
-}
-.tb td{
-    font-size: 12px;
-}
-.cell0{
-    width: auto;
-}
-.cell1{
-    width: auto;
-}
-.cell2{
-    width: auto;
-}
-.cell3{
-    width: auto;
-}
-.cell4{
-    width: auto;
-}
+    }
+    .fixed_top {
+        display:inline-table;
+        position:absolute;
+        top:0;
+        width: 100%;
+        background:#eef7ff;
+    }
+    .tb tr + tr, th + th{
+    border-top:1px solid #dedede;
+    border-bottom:1px solid #dedede;
+    }
+    .tb tr:last-child {
+    border-bottom:0;
+    }
+    .tb th{
+        font:500 14px 'spoqa han sans';
+    }
+    .tb th, td {
+    height:42px;
+    text-align:center;
+    }
+    .tb td{
+        font-size: 12px;
+    }
+    tr .cell0{
+        width: 100px;
+    }
+    tr .cell1{
+        width: 400px;
+    }
+    tr .cell2{
+        width: auto;
+    }
+    tr .cell3{
+        width: auto;
+    }
+    tr .cell4{
+        width: auto;
+    }
 
 /* css */
-.tb_wrap {
-  position:relative;
-  width:750px;
-  margin:20px auto;
-  padding-top:43px;
-}
-.tb_box {
-  max-height:420px;
-  overflow-x:hidden;
-  overflow-y:scroll;
-  border-bottom:1px solid #dedede;
-}
-.tb {
-  border-collapse:collapse;
-  border-spacing:0;
-  width:100%;
-}
-.fixed_top {
-  display:inline-table;
-  position:absolute;
-  background:#eef7ff;
-}
-.fixed_top th {
-  border-top:1px solid #dedede;
-  border-bottom:1px solid #dedede;
-  /* border-left: 1px solid #dedede;
-  border-right: 1px solid #dedede; */
-}
-.tb .tb tr.end {
-  color:#999;
-}
-
-/* responsive */
-@media screen and (max-width: 750px) {
-  .tb_wrap {
+    .tb_wrap {
+    position:relative;
+    width:750px;
+    margin:20px auto;
+    padding-top:43px;
+    }
+    .tb_box {
+    max-height:420px;
+    overflow-x:hidden;
+    overflow-y:scroll;
+    border-bottom:1px solid #dedede;
+    }
+    .tb {
+    border-collapse:collapse;
+    border-spacing:0;
     width:100%;
-    height: 500px;
-    overflow:hidden;
-  }
-  .tb_box {
-  overflow-x:hidden;
-  overflow-y:scroll;
-  }
-  .tb {
-    width:750px;
-    width:calc(100%);
-  }
-  .th{
-    border: 1px solid #444444;
-  }
-  .fixed_top {
-    width:750px;
-  }
-  .fixed_col {
-    background:#fff;
-  }
-  .cross {
+    }
+    .fixed_top {
+    display:inline-table;
+    position:absolute;
     background:#eef7ff;
-  }
-}
-.menu_list td{
-    width: 50px;
-}
+    }
+    .fixed_top th {
+    border-top:1px solid #dedede;
+    border-bottom:1px solid #dedede;
+    /* border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede; */
+    }
+    .tb .tb tr.end {
+    color:#999;
+    }
+
+    /* responsive */
+    @media screen and (max-width: 750px) {
+    .tb_wrap {
+        width:100%;
+        height: 500px;
+        overflow:hidden;
+    }
+    .tb_box {
+    overflow-x:hidden;
+    overflow-y:scroll;
+        border-right:none;
+        border-left:none;
+    }
+    .tb {
+        width:750px;
+        width:calc(100%);
+    }
+    .th{
+        border: 1px solid #444444;
+    }
+    .fixed_top {
+        width:750px;
+    }
+    .fixed_col {
+        background:#fff;
+    }
+    .cross {
+        background:#eef7ff;
+    }
+    }
 
 	</style>
 </head>
@@ -285,14 +292,14 @@
         <div class="searchBox">
             <div class="menudes">
                 <a href="/search_index">기본 검색</a>
-                <a href="/search_category_theme">카테고리별 검색</a>
+                <a href="/search_category_theme?large_theme=교단&small_theme=종단'">카테고리별 검색</a>
                 <div class="marca"></div>
             </div>
             <!-- 분류 : 분야, 시대, 지역 -->
             <div class="categoryMenu">
-                <a href="#" onclick="location.href = 'search_category_theme'" class="btn" id="current_category">주제별 분류</a>
-                <a href="#" onclick="location.href = 'search_category_era'" class="btn">시대별 분류</a>
-                <a href="#" onclick="location.href = 'search_category_area'" class="btn">지역별 분류</a>
+                <a href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교단'" class="btn" id="current_category">주제별 분류</a>
+                <a href="#" onclick="location.href = 'search_category_era?' + 'era_value=' + '1900'" class="btn">시대별 분류</a>
+                <a href="#" onclick="location.href = 'search_category_area?' + 'area_value=' + '서울특별시'" class="btn">지역별 분류</a>
 
                 <!-- 주제별 메뉴 나옴 -->
                 <!-- 교단, 교육/학교, 단체, 문헌, 불교건축, 불교미술, 사찰, 의식/의례, 활동 -->
@@ -310,7 +317,9 @@
                         <tbody>
                           <tr>
                             <td>1</td>
-                            <td>교단</td>
+                            <td>
+                              <a class="large_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교단'">교단</a>
+                            </td>
                             <td>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '종단'">종단</a>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교단' + '&' + 'small_theme=' + '총무원'">총무원</a>
@@ -322,7 +331,9 @@
                           </tr>
                           <tr>
                             <td>2</td>
-                            <td>사찰</td>
+                            <td>
+                              <a class="large_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰'">사찰</a>
+                            </td>
                             <td>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '대한불교조계종'">대한불교조계종</a>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '사찰' + '&' + 'small_theme=' + '한국불교태고종'">한국불교태고종</a>
@@ -345,7 +356,9 @@
                           </tr>
                           <tr>
                             <td>3</td>
-                            <td>단체</td>
+                            <td>
+                              <a class="large_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '단체'">단체</a>
+                            </td>
                             <td>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '단체' + '&' + 'small_theme=' + '승려'">승려</a>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '단체' + '&' + 'small_theme=' + '일반'">일반</a>
@@ -355,7 +368,9 @@
                           </tr>
                           <tr>
                             <td>4</td>
-                            <td>인물</td>
+                            <td>
+                              <a class="large_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물'">인물</a>
+                            </td>
                             <td>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '승려'">승려</a>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '인물' + '&' + 'small_theme=' + '문화예술인'">문화예술인</a>
@@ -370,7 +385,9 @@
                           </tr>
                           <tr>
                             <td>5</td>
-                            <td>활동</td>
+                            <td>
+                              <a class="large_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동'">활동</a>
+                            </td>
                             <td>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '행사'">행사</a>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '활동' + '&' + 'small_theme=' + '대회'">대회</a>
@@ -392,7 +409,9 @@
                           </tr>
                           <tr>
                             <td>6</td>
-                            <td>교육·학교</td>
+                            <td>
+                              <a class="large_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교'">교육·학교</a>
+                            </td>
                             <td>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '강원'">강원</a>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '교육·학교' + '&' + 'small_theme=' + '선원'">선원</a>
@@ -410,7 +429,9 @@
                           </tr>
                           <tr>
                             <td>7</td>
-                            <td>문헌</td>
+                            <td>
+                              <a class="large_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌'">문헌</a>
+                            </td>
                             <td>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '간행물'">간행물</a>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '문헌' + '&' + 'small_theme=' + '문건'">문건</a>
@@ -427,7 +448,9 @@
                           </tr>
                           <tr>
                             <td>8</td>
-                            <td>의식·의례</td>
+                            <td>
+                              <a class="large_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '의식·의례'">의식·의례</a>
+                            </td>
                             <td>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '죽음의례'">죽음의례</a>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '의식·의례' + '&' + 'small_theme=' + '일상의례'">일상의례</a>
@@ -438,7 +461,9 @@
                           </tr>
                           <tr>
                             <td>9</td>
-                            <td>불교건축</td>
+                            <td>
+                              <a class="large_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교건축'">불교건축</a>
+                            </td>
                             <td>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교건축' + '&' + 'small_theme=' + '전각'">전각</a>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교건축' + '&' + 'small_theme=' + '기타'">기타</a>
@@ -446,7 +471,9 @@
                           </tr>
                           <tr>
                             <td>10</td>
-                            <td>불교미술</td>
+                            <td>
+                              <a class="large_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교미술'">불교미술</a>
+                            </td>
                             <td>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '회화'">회화</a>
                                 <a class="theme_link" href="#" onclick="location.href = 'search_category_theme?'+ 'large_theme=' + '불교미술' + '&' + 'small_theme=' + '서예'">서예</a>
@@ -491,6 +518,8 @@
     <%var dArr = new Array()%>
     <%var eArr = new Array()%>
     <%var rArr = new Array()%>
+    <%var partArr = new Array()%>
+    <%var copyrighterArr = new Array()%>
     <% for(var obj of rows) { %>
         <%cArr[c]= obj.cID %>
         <%kArr[c]= obj.keyword %>
@@ -499,99 +528,63 @@
         <%dArr[c]= obj.detail %>
         <%eArr[c]= obj.picArea %>
         <%rArr[c]= obj.region %>
+        <%partArr[c]= obj.part %>
+        <%copyrighterArr[c]= obj.copyrighter %>
         <%c++%>
         <% } %>
 
     <!-- 스크립트 -->
     <script type="text/javascript">
 
-        // 해당 분류 가져오기 -> theme_value로
-        var word = new Array();
-                // 검색어 가져오기
-        var getParameters = function (paramName) {
-	    // 리턴값을 위한 변수 선언
-            var returnValue;
-
-            // 현재 URL 가져오기
-            var url = location.href;
-
-            // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
-            var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
-
-            // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
-            for (var i = 0; i < parameters.length; i++) {
-            var varName = parameters[i].split('=')[0];
-            if (varName.toUpperCase() == paramName.toUpperCase()) {
-            returnValue = parameters[i].split('=')[1];
-            return decodeURIComponent(returnValue);
-            }
-            }
-        };
-        var large_theme = getParameters('large_theme');
-        var small_theme = getParameters('small_theme');
-
-        // db 가져오기
-      var cid_Arr = new Array();
-      var file_Arr = new Array();
-      var headword_Arr = new Array();
-      var section_Arr = new Array();
-      var era_Arr = new Array();
-      var body_Arr = new Array();
-      var copyrightHolder_Arr = new Array();
-      var area_Arr = new Array();
-      var keyword_Arr = new Array();
-      
-      cid_Arr ='<%=cArr%>';
-      file_Arr = '<%=fArr%>';
-      headword_Arr ='<%=tArr%>';
-      era_Arr ='<%=eArr%>';
-      keyword_Arr ='<%=kArr%>';
-      area_Arr ='<%=rArr%>';
-      body_Arr ='<%=dArr%>';
+    // db 가져오기
+    var cid_Arr = new Array();
+    var headword_Arr = new Array();
+    var section_Arr = new Array();
+    var era_Arr = new Array();
+    var copyrighter_Arr = new Array();
+    var area_Arr = new Array();
+    var keyword_Arr = new Array();
+    var part_Arr = new Array();
+    
+    cid_Arr ='<%=cArr%>';
+    headword_Arr ='<%=tArr%>';
+    era_Arr ='<%=eArr%>';
+    part_Arr = '<%=partArr%>';
+    copyrighter_Arr = '<%=copyrighterArr%>';
 
 
-      // 받아온 db 잘라서 새로 저장 headword_Arr -> headword
-      var count = 0; // 받아온 db개수
-      var cid = new Array();
-      var keyword = new Array(); // 전체 CID의 키워드 배열
-      var headword = new Array(); // 전체 CID의 제목
-      var file = new Array(); //전체 이미지
-      var body = new Array(); // 본문 - body
-      var era = new Array(); // 시대
-      var area = new Array(); // 지역
-      var section = new Array(); // 분야(분류)
-      var related = new Array(); // 연관어
-      // 잘라서 넣기
-      var cid_split = cid_Arr.split(',');
-      for (let i = 0; i < cid_split.length; i++) {
-          cid[i] = cid_split[i];
-          count++
-      }
-      var file_split = file_Arr.split(',');
-      for (let i = 0; i < file_split.length; i++) {
-          file[i] = file_split[i];
-          count++
-      }
-      var headword_split = headword_Arr.split(',');
-      for (let i = 0; i < headword_split.length; i++) {
-          headword[i] = headword_split[i];
-      }
-      var era_split = era_Arr.split(',');
-      for (let i = 0; i < era_split.length; i++) {
-          era[i] = era_split[i];
-      }
-      var keyword_split = keyword_Arr.split(',');
-      for (let i = 0; i < keyword_split.length; i++) {
-          keyword[i] = keyword_split[i];
-      }
-      var area_split = area_Arr.split(',');
-      for (let i = 0; i < area_split.length; i++) {
-          area[i] = area_split[i];
-      }
-      var body_split = body_Arr.split(',');
-      for (let i = 0; i < body_split.length; i++) {
-          body[i] = body_split[i];
-      }
+    // 받아온 db 잘라서 새로 저장 headword_Arr -> headword
+    var count = 0; // 받아온 db개수
+    var cid = new Array();
+    var headword = new Array();
+    var era = new Array();
+    var copyrightHolder = new Array();
+    var area = new Array();
+    var keyword = new Array();
+    var copyrighter = new Array();
+    var part = new Array();
+    // 잘라서 넣기
+    var cid_split = cid_Arr.split(',');
+    for (let i = 0; i < cid_split.length; i++) {
+        cid[i] = cid_split[i];
+        count++
+    }
+    var headword_split = headword_Arr.split(',');
+    for (let i = 0; i < headword_split.length; i++) {
+        headword[i] = headword_split[i];
+    }
+    var era_split = era_Arr.split(',');
+    for (let i = 0; i < era_split.length; i++) {
+        era[i] = era_split[i];
+    }
+    var copyrighter_split = copyrighter_Arr.split(',');
+    for (let i = 0; i < copyrighter_split.length; i++) {
+        copyrighter[i] = copyrighter_split[i];
+    }
+    var part_split = part_Arr.split(',');
+    for (let i = 0; i < part_split.length; i++) {
+        part[i] = part_split[i];
+    }
 
         // num에 해당하는 배열들이 들어가야 함
         function make_list(cid, num){
@@ -609,15 +602,15 @@
             s += headword[num];
             s += '</a>';
             cell1.innerHTML = s;
-            cell2.innerHTML = section[num];
+            cell2.innerHTML = part[num];
             cell3.innerHTML = era[num];
-            cell4.innerHTML = copyrightHolder[num];
+            cell4.innerHTML = copyrighter[num];
         }
 
         // 리스트 출력
         for (let i = 0; i < count; i++) {
             make_list(cid[i], i);       
         }
-        </script>
+    </script>
 </body>
 </html>
