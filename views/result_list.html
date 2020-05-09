@@ -204,6 +204,9 @@
         width: 100%;
         background:#eef7ff;
     }
+    .tb tbody .cell0{
+        width: 1000px;
+    }
     .tb tr + tr, th + th{
     border-bottom:1px solid #dedede;
     }
@@ -220,19 +223,19 @@
     .tb td{
         font-size: 12px;
     }
-    .cell0{
+    tr .cell0{
+        width: 100px;
+    }
+    tr .cell1{
+        width: 400px;
+    }
+    tr .cell2{
         width: auto;
     }
-    .cell1{
+    tr .cell3{
         width: auto;
     }
-    .cell2{
-        width: auto;
-    }
-    .cell3{
-        width: auto;
-    }
-    .cell4{
+    tr .cell4{
         width: auto;
     }
 
@@ -308,7 +311,7 @@
     <div class="mainBox">
         <!--타이틀-->
 	    <img id="main_title" onclick="location.href = '/'" src="http://ebtc.dongguk.ac.kr/images/common/logo.jpg" margin: 0 auto;>
-	    <img id="semi_title" onclick="location.href = '/'" src="/images/semi_title.png">
+	    <img id="semi_title" onclick="location.href = '/'" src="/views/images/semi_title.png">
         <nav id="navBox">
             <a class="link" href="/intro">DB 소개</a>
             <a class="link" href="/search_index">DB 검색</a>
@@ -336,11 +339,11 @@
                   <table class="tb">
                     <thead>
                         <tr class="fixed_top">
-                            <th class="cell0" style="width: 128px;">CID</th>
+                            <th class="cell0" >CID</th>
                             <th class="cell1" >대표 표제어</th>
                             <th class="cell2">분야</th>
                             <th class="cell3">시대</th>
-                            <th class="cell4" style="width: 149px;">저작권자</th>
+                            <th class="cell4" >저작권자</th>
                         </tr>
                     </thead>
                     <tbody id="menu_list"></tbody>
@@ -348,18 +351,50 @@
                 </div>
             </div>
         </div>
+    <%var c = 0%>
+    <%var cArr = new Array()%>
+    <%var kArr = new Array()%>
+    <%var tArr = new Array()%>
+    <%var fArr = new Array()%>
+    <%var dArr = new Array()%>
+    <%var eArr = new Array()%>
+    <%var rArr = new Array()%>
+    <%var partArr = new Array()%>
+    <%var copyrighterArr = new Array()%>
+    <% for(var obj of rows) { %>
+        <%cArr[c]= obj.cID %>
+        <%kArr[c]= obj.keyword %>
+        <%tArr[c]= obj.title %>
+        <%fArr[c]= obj.file %>
+        <%dArr[c]= obj.detail %>
+        <%eArr[c]= obj.picArea %>
+        <%rArr[c]= obj.region %>
+        <%partArr[c]= obj.part %>
+        <%copyrighterArr[c]= obj.copyrighter %>
+        <%c++%>
+        <% } %>
+
     <!-- 스크립트 -->
     <script type="text/javascript">
 
     // db 가져오기
-    var headword = new Array;
-    var section = new Array;
-    var era = new Array;
-    var copyrightHolder = new Array;
-    var area = new Array;
+    var cid_Arr = new Array();
+    var headword_Arr = new Array();
+    var section_Arr = new Array();
+    var era_Arr = new Array();
+    var copyrighter_Arr = new Array();
+    var area_Arr = new Array();
+    var keyword_Arr = new Array();
+    var part_Arr = new Array();
+    
+    cid_Arr ='<%=cArr%>';
+    headword_Arr ='<%=tArr%>';
+    era_Arr ='<%=eArr%>';
+    part_Arr = '<%=partArr%>';
+    copyrighter_Arr = '<%=copyrighterArr%>';
 
-    var keyword = new Array();
-            // 검색어 가져오기
+
+    // 검색어 가져오기
     var getParameters = function (paramName) {
         // 리턴값을 위한 변수 선언
         var returnValue;
@@ -382,65 +417,39 @@
     var search_value = getParameters('search_word');
     document.getElementById("search_value").innerHTML= search_value;
 
-    // 검색어 검색
-    var search_split = search_value.split('+');
-    for (var i = 0; i < 100; i++) { // 예시 샘플 이미지 개수 100
 
-    var related_split = related[i].split('; '); // '; ' 단위로 분배, i번째 CID의 연관어
-    var keyword_split = keyword[i].split('; '); // '; ' 단위로 분배, i번째 CID의 키워드
-    var headword_split = headword[i].split(' ');
-    for (var j in keyword_split) { // 검색어와 split 비교
-        if(keyword_split[j] == search_split[k] || related_split[j] == search_split[k] || search_split[k] == headword_split[j] || search_split[k] == area[i] || search_split[k] == era[i] ) { // 검색어와의 조건을 넣으면 됨 (키워드 == 검색어 or 검색어 == 사진 제목) // ★★★★★
-                if (i < 9) {
-                    make('0000' + (i+1), i);
-                    break; // 이미지가 한개만 나오면 break문 지우기
-                }
-                else if (i < 99) {
-                    make('000' + (i+1), i);
-                    break;
-                }
-                else if (i < 999) {
-                    make('00' + (i+1), i);
-                    break;
-                }
-                else if (i < 9999) {
-                    make('0' + (i+1), i);
-                    break;
-                }
-                else if (i < 99999) {
-                    make((i+1));
-                    break;
-                }
-            }
-        }
+    // 받아온 db 잘라서 새로 저장 headword_Arr -> headword
+    var count = 0; // 받아온 db개수
+    var cid = new Array();
+    var headword = new Array();
+    var era = new Array();
+    var copyrightHolder = new Array();
+    var area = new Array();
+    var keyword = new Array();
+    var copyrighter = new Array();
+    var part = new Array();
+    // 잘라서 넣기
+    var cid_split = cid_Arr.split(',');
+    for (let i = 0; i < cid_split.length; i++) {
+        cid[i] = cid_split[i];
+        count++
     }
-
-
-        // db의 주제와 요청한 주제가 같을 때.
-        function make() {
-            for (let i = 0; i < db.length; i++) {
-                if (i < 9) {
-                    make_list('0000' + (i+1), i);
-                    break; // 이미지가 한개만 나오면 break문 지우기
-                }
-                else if (i < 99) {
-                    make_list('000' + (i+1), i);
-                    break;
-                }
-                else if (i < 999) {
-                    make_list('00' + (i+1), i);
-                    break;
-                }
-                else if (i < 9999) {
-                    make_list('0' + (i+1), i);
-                    break;
-                }
-                else if (i < 99999) {
-                    make_list((i+1), i);
-                    break;
-                }
-            }
-        }
+    var headword_split = headword_Arr.split(',');
+    for (let i = 0; i < headword_split.length; i++) {
+        headword[i] = headword_split[i];
+    }
+    var era_split = era_Arr.split(',');
+    for (let i = 0; i < era_split.length; i++) {
+        era[i] = era_split[i];
+    }
+    var copyrighter_split = copyrighter_Arr.split(',');
+    for (let i = 0; i < copyrighter_split.length; i++) {
+        copyrighter[i] = copyrighter_split[i];
+    }
+    var part_split = part_Arr.split(',');
+    for (let i = 0; i < part_split.length; i++) {
+        part[i] = part_split[i];
+    }
 
         // num에 해당하는 배열들이 들어가야 함
         function make_list(cid, num){
@@ -451,18 +460,22 @@
             var cell2 = row.insertCell(2); // 분야
             var cell3 = row.insertCell(3); // 시대
             var cell4 = row.insertCell(4); // 저작권자
-            cell0.innerHTML = 'HSJ' + cid;
-            var s = "<a href='detailImage.html?HSJ";
+            cell0.innerHTML = cid;
+            var s = "<a href='detailImage?cid_value=";
             s += cid;
             s += '\'>';
             s += headword[num];
             s += '</a>';
             cell1.innerHTML = s;
-            cell2.innerHTML = section[num];
+            cell2.innerHTML = part[num];
             cell3.innerHTML = era[num];
-            cell4.innerHTML = copyrightHolder[num];
+            cell4.innerHTML = copyrighter[num];
         }
-        make_list('0000'+1, 0);
+
+        // 리스트 출력
+        for (let i = 0; i < count; i++) {
+            make_list(cid[i], i);       
+        }
     </script>
 </body>
 </html>

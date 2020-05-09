@@ -275,7 +275,7 @@
     <div class="mainBox">
         <!--타이틀-->
 	    <img id="main_title" onclick="location.href = '/'" src="http://ebtc.dongguk.ac.kr/images/common/logo.jpg" margin: 0 auto;>
-	    <img id="semi_title" onclick="location.href = '/'" src="/images/semi_title.png">
+	    <img id="semi_title" onclick="location.href = '/'" src="/views/images/semi_title.png">
         <nav id="navBox">
             <a class="link" href="/intro">DB 소개</a>
             <a class="link" href="/search_index">DB 검색</a>
@@ -346,90 +346,120 @@
             </div>
         </div>
     </div>
+
+    <%var c = 0%>
+    <%var cArr = new Array()%>
+    <%var kArr = new Array()%>
+    <%var tArr = new Array()%>
+    <%var fArr = new Array()%>
+    <%var dArr = new Array()%>
+    <%var eArr = new Array()%>
+    <%var rArr = new Array()%>
+    <% for(var obj of rows) { %>
+        <%cArr[c]= obj.cID %>
+        <%kArr[c]= obj.keyword %>
+        <%tArr[c]= obj.title %>
+        <%fArr[c]= obj.file %>
+        <%dArr[c]= obj.detail %>
+        <%eArr[c]= obj.picArea %>
+        <%rArr[c]= obj.region %>
+        <%c++%>
+        <% } %>
+
     <!-- 스크립트 -->
     <script type="text/javascript">
 
-        // 해당 시대 가져오기 -> era_value
-        var word = new Array();
-                // 검색어 가져오기
-        var getParameters = function (paramName) {
-	    // 리턴값을 위한 변수 선언
-            var returnValue;
-
-            // 현재 URL 가져오기
-            var url = location.href;
-
-            // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
-            var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
-
-            // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
-            for (var i = 0; i < parameters.length; i++) {
-            var varName = parameters[i].split('=')[0];
-            if (varName.toUpperCase() == paramName.toUpperCase()) {
-            returnValue = parameters[i].split('=')[1];
-            return decodeURIComponent(returnValue);
-            }
-            }
-        };
-        var area_value = getParameters('area_value');
-        document.write(area_value);
-
-        // db 가져오기
-        var headword = new Array;
-        var section = new Array;
-        var era = new Array;
-        var area = new Array;
-        var copyrightHolder = new Array;
-
-        // db의 주제와 요청한 주제가 같을 때.
-        function make() {
-            for (let i = 0; i < db.length; i++) {
-                if(area[i] == area_value) {
-                    if (i < 9) {
-                        make_list('0000' + (i+1), i);
-                        break; // 이미지가 한개만 나오면 break문 지우기
-                    }
-                    else if (i < 99) {
-                        make_list('000' + (i+1), i);
-                        break;
-                    }
-                    else if (i < 999) {
-                        make_list('00' + (i+1), i);
-                        break;
-                    }
-                    else if (i < 9999) {
-                        make_list('0' + (i+1), i);
-                        break;
-                    }
-                    else if (i < 99999) {
-                        make_list((i+1), i);
-                        break;
-                    }
-                }
-            }
-        }
-
-        // num에 해당하는 배열들이 들어가야 함
-        function make_list(cid, num){
-            var my_list = document.getElementById('menu_list');
-            var row = my_list.insertRow( menu_list.rows.length );
-            var cell0 = row.insertCell(0); // CID
-            var cell1 = row.insertCell(1); // 대표 표제어
-            var cell2 = row.insertCell(2); // 분야
-            var cell3 = row.insertCell(3); // 시대
-            var cell4 = row.insertCell(4); // 저작권자
-            cell0.innerHTML = 'HSJ' + cid;
-            var s = "<a href='detailImage.html?HSJ'";
-            s += cid;
-            s += '>';
-            s += headword[num];
-            s += '</a>';
-            cell1.innerHTML = s;
-            cell2.innerHTML = section[num];
-            cell3.innerHTML = era[num];
-            cell4.innerHTML = copyrightHolder[num];
-        }
-
-        </script>
+      // db 가져오기
+      var cid_Arr = new Array();
+      var headword_Arr = new Array();
+      var section_Arr = new Array();
+      var era_Arr = new Array();
+      var copyrightHolder_Arr = new Array();
+      var area_Arr = new Array();
+      var keyword_Arr = new Array();
+      
+      cid_Arr ='<%=cArr%>';
+      headword_Arr ='<%=tArr%>';
+      era_Arr ='<%=eArr%>';
+  
+      // 검색어 가져오기
+      var getParameters = function (paramName) {
+          // 리턴값을 위한 변수 선언
+          var returnValue;
+  
+          // 현재 URL 가져오기
+          var url = location.href;
+  
+          // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
+          var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+  
+          // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
+          for (var i = 0; i < parameters.length; i++) {
+              var varName = parameters[i].split('=')[0];
+              if (varName.toUpperCase() == paramName.toUpperCase()) {
+                  returnValue = parameters[i].split('=')[1];
+                  return decodeURIComponent(returnValue);
+              }
+          }
+      };
+      var area_value = getParameters('area_value');
+      document.getElementById("area_value").innerHTML= search_value;
+  
+  
+      // 받아온 db 잘라서 새로 저장 headword_Arr -> headword
+      var count = 0; // 받아온 db개수
+      var cid = new Array();
+      var headword = new Array();
+      var section = new Array();
+      var era = new Array();
+      var copyrightHolder = new Array();
+      var area = new Array();
+      var keyword = new Array();
+      // 잘라서 넣기
+      var cid_split = cid_Arr.split(',');
+      for (let i = 0; i < cid_split.length; i++) {
+          cid[i] = cid_split[i];
+          count++
+      }
+      var headword_split = headword_Arr.split(',');
+      for (let i = 0; i < headword_split.length; i++) {
+          headword[i] = headword_split[i];
+      }
+      var era_split = era_Arr.split(',');
+      for (let i = 0; i < era_split.length; i++) {
+          era[i] = era_split[i];
+      }
+      document.write(cid[0]);
+      document.write(headword[0]);
+      document.write(era[0]);
+      document.write(count);
+  
+  
+          // num에 해당하는 배열들이 들어가야 함
+          function make_list(cid, num){
+              var my_list = document.getElementById('menu_list');
+              var row = my_list.insertRow( menu_list.rows.length );
+              var cell0 = row.insertCell(0); // CID
+              var cell1 = row.insertCell(1); // 대표 표제어
+              var cell2 = row.insertCell(2); // 분야
+              var cell3 = row.insertCell(3); // 시대
+              var cell4 = row.insertCell(4); // 저작권자
+              cell0.innerHTML = cid;
+              var s = "<a href='detailImage?cid=";
+              s += cid;
+              s += '\'>';
+              s += headword[num];
+              s += '</a>';
+              cell1.innerHTML = s;
+              cell2.innerHTML = section[num];
+              cell3.innerHTML = era[num];
+              cell4.innerHTML = copyrightHolder[num];
+          }
+  
+          // 리스트 출력
+          for (let i = 0; i < count; i++) {
+              make_list(cid[i], i);       
+          }
+      </script>
 </body>
 </html>

@@ -3,6 +3,7 @@ var app = express();
 var ejs = require('ejs');
 var session = require('express-session');
 
+app.use(express.static(__dirname));
 app.set("views", __dirname+"/views");
 app.set("view engine", "ejs");
 app.engine("html", ejs.renderFile);

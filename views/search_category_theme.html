@@ -275,7 +275,7 @@
     <div class="mainBox">
         <!--타이틀-->
 	    <img id="main_title" onclick="location.href = '/'" src="http://ebtc.dongguk.ac.kr/images/common/logo.jpg" margin: 0 auto;>
-	    <img id="semi_title" onclick="location.href = '/'" src="/images/semi_title.png">
+	    <img id="semi_title" onclick="location.href = '/'" src="/views/images/semi_title.png">
         <nav id="navBox">
             <a class="link" href="/intro">DB 소개</a>
             <a class="link" href="/search_index">DB 검색</a>
@@ -481,6 +481,27 @@
             </div>
         </div>
     </div>
+
+    <!-- var blobObj = new Blob(array, options); -->
+    <%var c = 0%>
+    <%var cArr = new Array()%>
+    <%var kArr = new Array()%>
+    <%var tArr = new Array()%>
+    <%var fArr = new Array()%>
+    <%var dArr = new Array()%>
+    <%var eArr = new Array()%>
+    <%var rArr = new Array()%>
+    <% for(var obj of rows) { %>
+        <%cArr[c]= obj.cID %>
+        <%kArr[c]= obj.keyword %>
+        <%tArr[c]= obj.title %>
+        <%fArr[c]= obj.file %>
+        <%dArr[c]= obj.detail %>
+        <%eArr[c]= obj.picArea %>
+        <%rArr[c]= obj.region %>
+        <%c++%>
+        <% } %>
+
     <!-- 스크립트 -->
     <script type="text/javascript">
 
@@ -510,38 +531,67 @@
         var small_theme = getParameters('small_theme');
 
         // db 가져오기
-        var headword = new Array;
-        var section = new Array;
-        var era = new Array;
-        var copyrightHolder = new Array;
+      var cid_Arr = new Array();
+      var file_Arr = new Array();
+      var headword_Arr = new Array();
+      var section_Arr = new Array();
+      var era_Arr = new Array();
+      var body_Arr = new Array();
+      var copyrightHolder_Arr = new Array();
+      var area_Arr = new Array();
+      var keyword_Arr = new Array();
+      
+      cid_Arr ='<%=cArr%>';
+      file_Arr = '<%=fArr%>';
+      headword_Arr ='<%=tArr%>';
+      era_Arr ='<%=eArr%>';
+      keyword_Arr ='<%=kArr%>';
+      area_Arr ='<%=rArr%>';
+      body_Arr ='<%=dArr%>';
 
-        // db의 주제와 요청한 주제가 같을 때.
-        function make() {
-            for (let i = 0; i < db.length; i++) {
-                if(section[i] == small_theme) {
-                    if (i < 9) {
-                        make_list('0000' + (i+1), i);
-                        break; // 이미지가 한개만 나오면 break문 지우기
-                    }
-                    else if (i < 99) {
-                        make_list('000' + (i+1), i);
-                        break;
-                    }
-                    else if (i < 999) {
-                        make_list('00' + (i+1), i);
-                        break;
-                    }
-                    else if (i < 9999) {
-                        make_list('0' + (i+1), i);
-                        break;
-                    }
-                    else if (i < 99999) {
-                        make_list((i+1), i);
-                        break;
-                    }
-                }
-            }
-        }
+
+      // 받아온 db 잘라서 새로 저장 headword_Arr -> headword
+      var count = 0; // 받아온 db개수
+      var cid = new Array();
+      var keyword = new Array(); // 전체 CID의 키워드 배열
+      var headword = new Array(); // 전체 CID의 제목
+      var file = new Array(); //전체 이미지
+      var body = new Array(); // 본문 - body
+      var era = new Array(); // 시대
+      var area = new Array(); // 지역
+      var section = new Array(); // 분야(분류)
+      var related = new Array(); // 연관어
+      // 잘라서 넣기
+      var cid_split = cid_Arr.split(',');
+      for (let i = 0; i < cid_split.length; i++) {
+          cid[i] = cid_split[i];
+          count++
+      }
+      var file_split = file_Arr.split(',');
+      for (let i = 0; i < file_split.length; i++) {
+          file[i] = file_split[i];
+          count++
+      }
+      var headword_split = headword_Arr.split(',');
+      for (let i = 0; i < headword_split.length; i++) {
+          headword[i] = headword_split[i];
+      }
+      var era_split = era_Arr.split(',');
+      for (let i = 0; i < era_split.length; i++) {
+          era[i] = era_split[i];
+      }
+      var keyword_split = keyword_Arr.split(',');
+      for (let i = 0; i < keyword_split.length; i++) {
+          keyword[i] = keyword_split[i];
+      }
+      var area_split = area_Arr.split(',');
+      for (let i = 0; i < area_split.length; i++) {
+          area[i] = area_split[i];
+      }
+      var body_split = body_Arr.split(',');
+      for (let i = 0; i < body_split.length; i++) {
+          body[i] = body_split[i];
+      }
 
         // num에 해당하는 배열들이 들어가야 함
         function make_list(cid, num){
@@ -552,10 +602,10 @@
             var cell2 = row.insertCell(2); // 분야
             var cell3 = row.insertCell(3); // 시대
             var cell4 = row.insertCell(4); // 저작권자
-            cell0.innerHTML = 'HSJ' + cid;
-            var s = "<a href='detailImage?HSJ'";
+            cell0.innerHTML = cid;
+            var s = "<a href='detailImage?cid_value=";
             s += cid;
-            s += '>';
+            s += '\'>';
             s += headword[num];
             s += '</a>';
             cell1.innerHTML = s;
@@ -564,6 +614,10 @@
             cell4.innerHTML = copyrightHolder[num];
         }
 
+        // 리스트 출력
+        for (let i = 0; i < count; i++) {
+            make_list(cid[i], i);       
+        }
         </script>
 </body>
 </html>

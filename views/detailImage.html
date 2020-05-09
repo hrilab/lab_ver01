@@ -69,7 +69,7 @@ p{
     }
     /* 설명 */
     .detail{
-        width: 500px;
+        width: 600px;
         max-width: 100%;
         height: 200px;
         margin-left: 30px;
@@ -109,11 +109,13 @@ p{
     margin-left: 100px;
 }
 .semiTitle{
-    margin-top: 10px;
+    width: 1000px;
+    margin-top: -50px;
     margin-left: 45px;
     color: gray;
     font-size: 20px;
     text-align: left;
+    position: absolute;
 }
 .similar{
     width: 380px;
@@ -125,6 +127,7 @@ p{
     border:1px solid gray;
     border-radius: 5px;
     float: left;
+    display: block;
 }
 .image1{
     margin-left: 150px;
@@ -213,57 +216,148 @@ a.button2:hover {
 
     <!-- 유사 이미지 -->
     <div id="similarBox">
-        <div class="semiTitle">
-            유사 이미지
-        </div>
+        <a class="semiTitle">유사 이미지</a>
     </div>
 
-
+    <!-- var blobObj = new Blob(array, options); -->
+    <%var c = 0%>
+    <%var cArr = new Array()%>
+    <%var kArr = new Array()%>
+    <%var tArr = new Array()%>
+    <%var fArr = new Array()%>
+    <%var dArr = new Array()%>
+    <%var eArr = new Array()%>
+    <%var rArr = new Array()%>
+    <%var partArr = new Array()%>
+    <%var relatedWordArr = new Array()%>
+    <% for(var obj of rows) { %>
+        <%cArr[c]= obj.cID %>
+        <%kArr[c]= obj.keyword %>
+        <%tArr[c]= obj.title %>
+        <%fArr[c]= obj.file %>
+        <%dArr[c]= obj.detail %>
+        <%eArr[c]= obj.picArea %>
+        <%rArr[c]= obj.region %>
+        <%partArr[c]= obj.part %>
+        <%relatedWordArr[c]= obj.relatedWord %>
+        <%c++%>
+        <% } %>
 
     <script type="text/javascript" src="jquery-1.6.4.js"></script>
     <script type="text/javascript">
 
 
+    // 링크 cid 가져오기
+    var getParameters = function (paramName) {
+          // 리턴값을 위한 변수 선언
+          var returnValue;
+  
+          // 현재 URL 가져오기
+          var url = location.href;
+  
+          // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
+          var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+  
+          // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
+          for (var i = 0; i < parameters.length; i++) {
+              var varName = parameters[i].split('=')[0];
+              if (varName.toUpperCase() == paramName.toUpperCase()) {
+                  returnValue = parameters[i].split('=')[1];
+                  return decodeURIComponent(returnValue);
+              }
+        }
+    };
+
+    // db 가져오기
+    var cid_Arr = new Array();
+    var file_Arr = new Array();
+    var headword_Arr = new Array();
+    var era_Arr = new Array();
+    var body_Arr = new Array();
+    var copyrightHolder_Arr = new Array();
+    var area_Arr = new Array();
+    var keyword_Arr = new Array();
+    var relatedWord_Arr = new Array();
+    
+    cid_Arr ='<%=cArr%>';
+    file_Arr = '<%=fArr%>';
+    headword_Arr ='<%=tArr%>';
+    era_Arr ='<%=eArr%>';
+    keyword_Arr ='<%=kArr%>';
+    area_Arr ='<%=rArr%>';
+    body_Arr ='<%=dArr%>';
+    part_Arr = '<%=partArr%>';
+    relatedWord_Arr = '<%=relatedWordArr%>';
+
+
+    // 받아온 db 잘라서 새로 저장 headword_Arr -> headword
+    var count = 0; // 받아온 db개수
+    var cid = new Array();
 	var keyword = new Array(); // 전체 CID의 키워드 배열
     var headword = new Array(); // 전체 CID의 제목
     var file = new Array(); //전체 이미지
     var body = new Array(); // 본문 - body
     var era = new Array(); // 시대
     var area = new Array(); // 지역
-    var section = new Array(); // 분야(분류)
-    var related = new Array(); // 연관어
+    var part = new Array(); // 분야(분류)
+    var relatedWord = new Array();
+    // 잘라서 넣기
+    var cid_split = cid_Arr.split(',');
+    for (let i = 0; i < cid_split.length; i++) {
+        cid[i] = cid_split[i];
+        count++
+    }
+    var file_split = file_Arr.split(',');
+    for (let i = 0; i < file_split.length; i++) {
+        file[i] = file_split[i];
+        count++
+    }
+    var headword_split = headword_Arr.split(',');
+    for (let i = 0; i < headword_split.length; i++) {
+        headword[i] = headword_split[i];
+    }
+    var era_split = era_Arr.split(',');
+    for (let i = 0; i < era_split.length; i++) {
+        era[i] = era_split[i];
+    }
+    var keyword_split = keyword_Arr.split(',');
+    for (let i = 0; i < keyword_split.length; i++) {
+        keyword[i] = keyword_split[i];
+    }
+    var area_split = area_Arr.split(',');
+    for (let i = 0; i < area_split.length; i++) {
+        area[i] = area_split[i];
+    }
+    var body_split = body_Arr.split(',');
+    for (let i = 0; i < body_split.length; i++) {
+        body[i] = body_split[i];
+    }
+    var part_split = part_Arr.split(',');
+    for (let i = 0; i < part_split.length; i++) {
+        part[i] = part_split[i];
+    }
+    var relatedWord_split = relatedWord_Arr.split(',');
+    for (let i = 0; i < relatedWord_split.length; i++) {
+        relatedWord[i] = relatedWord_split[i];
+    }
 
 
-	// 사진 CID값 가져오기
-	var getParameters = function (paramName) {
-	    // 리턴값을 위한 변수 선언
-	    var returnValue;
+    // 띄우고자 하는 cid 값
+    var cid_tmp, cid_num;
+    for (let i = 0; i < count; i++) {
+        if (cid[i] == getParameters("cid_value")) {
+            cid_tmp = getParameters("cid_value");
+            cid_num = i;
+            break;
+        }
+    } 
 
-	    // 현재 URL 가져오기
-	    var url = location.href;
-
-	    // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
-	    var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
-
-	    // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
-	    for (var i = 0; i < parameters.length; i++) {
-	    var varName = parameters[i].split('=')[0];
-	    if (varName.toUpperCase() == paramName.toUpperCase()) {
-	    returnValue = parameters[i].split('=')[1];
-	    return decodeURIComponent(returnValue);
-	    }
-	    }
-	};
-
-	var cid = getParameters('cid');
-	var tnum = cid.substring(3,8);
-	var num = tnum*1 - 1;
 
 
     // 원본 이미지 생성
 var imgObj = new Image();
 function popupImage() {
-imgObj.src = "/views/images/"+ file[num];
+imgObj.src = "/views/images/"+ file[cid_num];
 setTimeout("createImgWin(imgObj)", 100);
 }
 function createImgWin(imgObj) {
@@ -280,36 +374,40 @@ imageWin.document.title = imgObj.src;
 }
 
 
-
-
 // 메인 사진 출력
-document.getElementById("main_img").src= "/views/images/"+ file[num];
+// 1. db 바이너리 값 가져오기
+// 2. 바이너리 to 이미지
+
+// const newBlob = new Blob([new Blob(file)], { type: 'image/png' });
+
+
+document.getElementById("main_img").src= "/views/images/"+ file[cid_num];
 
 // 사진 세부 정보, 제목 분류 시대 지역 본문 키워드 연관어
-document.getElementById("d_title").innerHTML= headword[num]; // cid_headword
-document.getElementById("d_section").innerHTML= detail[num];
-document.getElementById("d_era").innerHTML= era[num];
-document.getElementById("d_area").innerHTML= area[num];
-document.getElementById("d_body").innerHTML= body[num];
-document.getElementById("d_keyword").innerHTML= keyword[num];
-document.getElementById("d_related").innerHTML= related[num];
+document.getElementById("d_title").innerHTML= headword[cid_num]; // cid_headword
+document.getElementById("d_section").innerHTML= part[cid_num];
+document.getElementById("d_era").innerHTML= era[cid_num];
+document.getElementById("d_area").innerHTML= area[cid_num];
+document.getElementById("d_body").innerHTML= body[cid_num];
+document.getElementById("d_keyword").innerHTML= keyword[cid_num];
+document.getElementById("d_related").innerHTML= relatedWord[cid_num];
 
 
 //함수
-function make(cid, num){
+function make(cidn, num){
 	var myDiv = document.createElement("div");
     add_div(myDiv);
 
     var img = document.createElement('img'); // 이미지 객체 생성
-    var cid_num = cid;
+    var cidn_num = cidn;
 
 
     // 이미지를 클릭하면 해당 CID로 detailImage_(CID).html 로 연결
     img.onclick = function(){
-        location.href='detailImage?cid=' + 'HSJ' + cid_num;
+        location.href='detailImage?cid_value=' + cid[num];
     };
 
-    img.src = file[num]; // 이미지 경로 설정 (cid_num == 사진 CID)
+    img.src = "/views/images/"+ file[num]; // 이미지 경로 설정 (cid_num == 사진 CID)
     img.style.cursor = 'pointer'; // 커서 지정
     img.style.width= "auto";
     img.style.width= "97%";
@@ -335,43 +433,56 @@ function add_div(div){
 
 }
 
-function make_similar(search_value){
-    for (var i = 0; i < 100; i++) {
-    	if(i != num){
+var generateRandom = function (min, max) {
+  var ranNum = Math.floor(Math.random()*(max-min+1)) + min;
+  return ranNum;
+}
 
+function make_similar(search_value){
+    var make_count = 0;
+    var i = 0;
+
+    while(make_count < 3) {
+    i = generateRandom(0, 100);
+    	if(i != cid_num){
 	        var keyword_split = keyword[i].split('; '); // ';' 단위로 분배, i번째 CID의 키워드
 
 	        for (var j in keyword_split) { // 검색어와 split 비교
 	            if(keyword_split[j] == search_value) { // 검색어와의 조건을 넣으면 됨 (검색어 == 키워드)
 	            	if (i < 9) {
-	                    make('0000' + (i+1), i);
+                        make('0000' + (i+1), i);
+                        make_count++;
 	                    break; // 이미지가 한개만 나오면 break문 지우기
 	                }
 	                else if (i < 99) {
-	                    make('000' + (i+1), i);
+                        make('000' + (i+1), i);
+                        make_count++;
 	                    break;
 	                }
 	                else if (i < 999) {
-	                    make('00' + (i+1), i);
+                        make('00' + (i+1), i);
+                        make_count++;
 	                    break;
 	                }
 	                else if (i < 9999) {
-	                    make('0' + (i+1), i);
+                        make('0' + (i+1), i);
+                        make_count++;
 	                    break;
 	                }
 	               else if (i < 99999) {
-	                    make((i+1), i);
+                        make((i+1), i);
+                        make_count++;
 	                    break;
 	               }
 	            }
-	        }
-    	}
+            }
+        }
     }
 }
 // 유사 이미지
 
 //cid_keyword
-var cid_keyword_split = keyword[num].split(';'); // ';' 단위로 분배, i번째 CID의 키워드
+var cid_keyword_split = keyword[cid_num].split(';'); // ';' 단위로 분배, i번째 CID의 키워드
 var cid_keyword_count = 0; // keyword 개수
 while (cid_keyword_split[cid_keyword_count]) { // keyword가 몇개인지 셈
     cid_keyword_count++;
