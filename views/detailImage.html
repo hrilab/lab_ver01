@@ -181,7 +181,7 @@ a.button2:hover {
     <!-- 1번 사진 -->
     <div id="detailBox">
         <div class="main mainImage">
-            <img class="img_setting" id="main_img">
+            <img class="img_setting" id="main_img" onclick="popupImage();">
         </div>
 
         <div class="main detail">
@@ -196,6 +196,9 @@ a.button2:hover {
             </div>
             <div class="d area" >
                 지역 : <p id="d_area"></p>
+            </div>
+            <div class="d expain" >
+                설명문 : <p id="d_explain"></p>
             </div>
             <div class="d body" >
                 본문 : <p id="d_body"></p>
@@ -230,6 +233,7 @@ a.button2:hover {
     <%var rArr = new Array()%>
     <%var partArr = new Array()%>
     <%var relatedWordArr = new Array()%>
+    <%var explanationArr = new Array()%>
     <% for(var obj of rows) { %>
         <%cArr[c]= obj.cID %>
         <%kArr[c]= obj.keyword %>
@@ -239,6 +243,7 @@ a.button2:hover {
         <%eArr[c]= obj.picArea %>
         <%rArr[c]= obj.region %>
         <%partArr[c]= obj.part %>
+        <%explanationArr[c]= obj.explanation %>
         <%relatedWordArr[c]= obj.relatedWord %>
         <%c++%>
         <% } %>
@@ -278,6 +283,7 @@ a.button2:hover {
     var area_Arr = new Array();
     var keyword_Arr = new Array();
     var relatedWord_Arr = new Array();
+    var explanation_Arr = new Array();
     
     cid_Arr ='<%=cArr%>';
     file_Arr = '<%=fArr%>';
@@ -288,6 +294,7 @@ a.button2:hover {
     body_Arr ='<%=dArr%>';
     part_Arr = '<%=partArr%>';
     relatedWord_Arr = '<%=relatedWordArr%>';
+    explanation_Arr = '<%=explanationArr%>';
 
 
     // 받아온 db 잘라서 새로 저장 headword_Arr -> headword
@@ -301,6 +308,7 @@ a.button2:hover {
     var area = new Array(); // 지역
     var part = new Array(); // 분야(분류)
     var relatedWord = new Array();
+    var explanation = new Array();
     // 잘라서 넣기
     var cid_split = cid_Arr.split(',');
     for (let i = 0; i < cid_split.length; i++) {
@@ -339,6 +347,10 @@ a.button2:hover {
     var relatedWord_split = relatedWord_Arr.split(',');
     for (let i = 0; i < relatedWord_split.length; i++) {
         relatedWord[i] = relatedWord_split[i];
+    }    
+    var explanation_split = explanation_Arr.split(',');
+    for (let i = 0; i < explanation_split.length; i++) {
+        explanation[i] = explanation_split[i];
     }
 
 
@@ -388,6 +400,7 @@ document.getElementById("d_title").innerHTML= headword[cid_num]; // cid_headword
 document.getElementById("d_section").innerHTML= part[cid_num];
 document.getElementById("d_era").innerHTML= era[cid_num];
 document.getElementById("d_area").innerHTML= area[cid_num];
+document.getElementById("d_explain").innerHTML= explanation[cid_num];
 document.getElementById("d_body").innerHTML= body[cid_num];
 document.getElementById("d_keyword").innerHTML= keyword[cid_num];
 document.getElementById("d_related").innerHTML= relatedWord[cid_num];
